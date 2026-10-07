@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/parentTaxonStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F7707728_phylum_to_kingdom	Tracheophyta has parent taxon Plantae	phylum_to_kingdom__joined_label	1

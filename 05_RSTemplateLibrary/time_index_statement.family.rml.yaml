@@ -1,0 +1,115 @@
+id: time_index_statement
+extends: semunit:assertionalStatementUnit
+execution_layer: 20
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - roles
+  - resources
+  - time_fields
+  - emit_semantic_unit_has_time
+  - label_map
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+  resources:
+    temporal_entity:
+      path: resources.temporal_entity
+      default_template: ex:/temporalEntity/{Observation_ID}_{instance_id}
+    time_description:
+      path: resources.time_description
+      default_template: ex:/DateTimeDescription/{Observation_ID}_{instance_id}
+  collections:
+    time_fields:
+      builder: time_fields
+  values:
+    emit_semantic_unit_has_time:
+      kind: bool
+      path: emit_semantic_unit_has_time
+      default: true
+emit_bundles:
+- id: semantic_unit_resource
+  kind: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:assertionalStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+- id: temporal_entity_resource
+  kind: minted_resource
+  subject_map: resources.temporal_entity
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: time:temporalEntity
+      term_type: iri
+      preserve_curie: true
+- id: time_description_resource
+  kind: minted_resource
+  subject_map: resources.time_description
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: time:DateTimeDescription
+      term_type: iri
+      preserve_curie: true
+- id: temporal_entity_graph
+  kind: assertion_graph
+  subject_map: resources.temporal_entity
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:inDateTime
+    object_map: resources.time_description
+- id: time_description_graph
+  kind: assertion_graph
+  subject_map: resources.time_description
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - for_each: time_fields
+    predicate_map: $item.predicate
+    object_map: $item.object_map
+- id: semantic_unit_graph
+  kind: assertion_graph
+  when: emit_semantic_unit_has_time
+  subject_map: semantic_unit.subject_map
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:hasTime
+    object_map: resources.temporal_entity
+default_label_map:
+  cases:
+  - requires:
+    - dayOfYear
+    - year
+    template: 'Time index: day {dayOfYear} of year {year}'
+  - requires:
+    - year
+    template: 'Time index: year {year}'
+  tokens:
+    dayOfYear:
+      from_time_field_predicate: time:dayOfYear
+    year:
+      from_time_field_predicate: time:year

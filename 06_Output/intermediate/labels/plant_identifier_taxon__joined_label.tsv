@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Hal_2023_identifier	Achillea millefolium has identifier Achillea millefolium	plant_identifier_taxon__joined_label	1
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Hal_2024_identifier	Achillea millefolium has identifier Achillea millefolium	plant_identifier_taxon__joined_label	2
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Jen_2023_identifier	Achillea millefolium has identifier Achillea millefolium	plant_identifier_taxon__joined_label	3
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Jen_2024_identifier	Achillea millefolium has identifier Achillea millefolium	plant_identifier_taxon__joined_label	4

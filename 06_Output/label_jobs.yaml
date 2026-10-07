@@ -1,0 +1,5698 @@
+prefixes:
+  ex: http://example.com/base/
+  semunit: http://example.com/semunit/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dcterms: http://purl.org/dc/terms/
+  schema: http://schema.org/
+  envo: http://purl.obolibrary.org/obo/ENVO_
+  ro: http://purl.obolibrary.org/obo/RO_
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  dwc: http://rs.tdwg.org/dwc/terms/
+  obi: http://purl.obolibrary.org/obo/OBI_
+  iao: http://purl.obolibrary.org/obo/IAO_
+  ppo: http://purl.obolibrary.org/obo/PPO_
+  time: http://www.w3.org/2006/time#
+  bfo: http://purl.obolibrary.org/obo/BFO_
+  po: http://purl.obolibrary.org/obo/PO_
+  wd: http://www.wikidata.org/entity/
+  wdt: http://www.wikidata.org/prop/direct/
+sources:
+- id: cities-source
+  access: 01_InputData/cities.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: botanical_garden-source
+  access: 01_InputData/botanical_gardens.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: observations-source
+  access: 01_InputData/observations.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: species-source
+  access: 01_InputData/species.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: names-source
+  access: 01_InputData/names.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: genus-source
+  access: 01_InputData/genus.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: family-source
+  access: 01_InputData/family.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: order-source
+  access: 01_InputData/order.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: class-source
+  access: 01_InputData/class.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: phylum-source
+  access: 01_InputData/phylum.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: kingdom-source
+  access: 01_InputData/kingdom.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+label_jobs:
+- id: garden_coordinates__basic_label_lookup
+  instance_id: garden_coordinates
+  family: coordinates_statement
+  mode: basic_table
+  target: semantic_unit
+  source: botanical_garden-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/coordinatesStatementUnit/{Botanic_Garden}_coordinates
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has lat {latitude} and long {longitude}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_FirstFlower__basic_label_lookup
+  instance_id: obs_FirstFlower
+  family: observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality pollen-releasing inflorescence present with value
+      true'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_GSL__basic_label_lookup
+  instance_id: obs_GSL
+  family: scalar_observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality growing season length with value {GSL} and unit
+      unitDay'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_LastFlower__basic_label_lookup
+  instance_id: obs_LastFlower
+  family: observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality open inflorescence present with value true'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_floweringDuration__basic_label_lookup
+  instance_id: obs_floweringDuration
+  family: scalar_observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality flowering duration with value {FloweringDuration}
+      and unit unitDay'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_leafUnf__basic_label_lookup
+  instance_id: obs_leafUnf
+  family: observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality mature true leaf present with value true'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: obs_senOn__basic_label_lookup
+  instance_id: obs_senOn
+  family: observation_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: '{label} has quality senesced true leaf present with value true'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: annualPhenology_time_index__basic_label_lookup
+  instance_id: annualPhenology_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: annualPhenology_time_order__basic_label_lookup
+  instance_id: annualPhenology_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: firstflower_time_index__basic_label_lookup
+  instance_id: firstflower_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: day {FirstFlower} of year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: firstflower_time_order__basic_label_lookup
+  instance_id: firstflower_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {FirstFlower_pos}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: floweringPhenology_time_index__basic_label_lookup
+  instance_id: floweringPhenology_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: floweringPhenology_time_order__basic_label_lookup
+  instance_id: floweringPhenology_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: lastflower_time_index__basic_label_lookup
+  instance_id: lastflower_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: day {LastFlower} of year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: lastflower_time_order__basic_label_lookup
+  instance_id: lastflower_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {LastFlower_pos}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: leafUnf_time_index__basic_label_lookup
+  instance_id: leafUnf_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: day {LeafUnf} of year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: leafUnf_time_order__basic_label_lookup
+  instance_id: leafUnf_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {LeafUnf_pos}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: senOn_time_index__basic_label_lookup
+  instance_id: senOn_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: day {SenOn} of year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: senOn_time_order__basic_label_lookup
+  instance_id: senOn_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {SenOn_pos}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: vegetativePhenology_time_index__basic_label_lookup
+  instance_id: vegetativePhenology_time_index
+  family: time_index_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time index: year {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: vegetativePhenology_time_order__basic_label_lookup
+  instance_id: vegetativePhenology_time_order
+  family: time_order_statement
+  mode: basic_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  label_map:
+    kind: template
+    term_type: literal
+    constant: null
+    reference: null
+    template: 'Time order: position {Year}'
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  materialize: false
+  lookup_only: true
+- id: class_gbif_identifier__joined_label
+  instance_id: class_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: class-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_class_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: class_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: class-source
+      base_source: class-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: class_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: class_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: class_taxon_rank__joined_label
+  instance_id: class_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: class-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_class_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: class_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: class-source
+      base_source: class-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: class
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: class
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: class_to_phylum__joined_label
+  instance_id: class_to_phylum
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: class-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_class_to_phylum
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: class_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: class-source
+      base_source: class-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: phylum_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_phylum_taxon_base
+        join_conditions:
+        - child: phylum_tax
+          parent: phylum_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: phylum-source
+      base_source: class-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_phylum_taxon_base
+      join_conditions:
+      - child: phylum_tax
+        parent: phylum_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_phylum_taxon_base
+        join_conditions:
+        - child: phylum_tax
+          parent: phylum_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: family_gbif_identifier__joined_label
+  instance_id: family_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: family-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_family_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: family_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: family-source
+      base_source: family-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: family_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: family_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: family_taxon_rank__joined_label
+  instance_id: family_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: family-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_family_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: family_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: family-source
+      base_source: family-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: family
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: family
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: family_to_order__joined_label
+  instance_id: family_to_order
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: family-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_family_to_order
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: family_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: family-source
+      base_source: family-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: order_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_order_taxon_base
+        join_conditions:
+        - child: order_tax
+          parent: order_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: order-source
+      base_source: family-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_order_taxon_base
+      join_conditions:
+      - child: order_tax
+        parent: order_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_order_taxon_base
+        join_conditions:
+        - child: order_tax
+          parent: order_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: garden_location__joined_label
+  instance_id: garden_location
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: botanical_garden-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/locationStatementUnit/{Botanic_Garden}_garden_location
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: botanical_garden
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: botanical_garden-source
+      base_source: botanical_garden-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: is located in
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: city
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: cities-source
+      base_source: botanical_garden-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_city_base
+      join_conditions:
+      - child: City
+        parent: City
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: genus_gbif_identifier__joined_label
+  instance_id: genus_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: genus-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_genus_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: genus_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: genus-source
+      base_source: genus-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: genus_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: genus_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: genus_taxon_rank__joined_label
+  instance_id: genus_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: genus-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_genus_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: genus_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: genus-source
+      base_source: genus-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: genus
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: genus
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: genus_to_family__joined_label
+  instance_id: genus_to_family
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: genus-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_genus_to_family
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: genus_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: genus-source
+      base_source: genus-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: family_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_family_taxon_base
+        join_conditions:
+        - child: family_tax
+          parent: family_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: family-source
+      base_source: genus-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_family_taxon_base
+      join_conditions:
+      - child: family_tax
+        parent: family_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_family_taxon_base
+        join_conditions:
+        - child: family_tax
+          parent: family_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: kingdom_gbif_identifier__joined_label
+  instance_id: kingdom_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: kingdom-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_kingdom_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: kingdom_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: kingdom-source
+      base_source: kingdom-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: kingdom_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: kingdom_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: kingdom_taxon_rank__joined_label
+  instance_id: kingdom_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: kingdom-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_kingdom_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: kingdom_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: kingdom-source
+      base_source: kingdom-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: kingdom
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: kingdom
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: order_gbif_identifier__joined_label
+  instance_id: order_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: order-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_order_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: order_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: order-source
+      base_source: order-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: order_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: order_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: order_taxon_rank__joined_label
+  instance_id: order_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: order-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_order_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: order_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: order-source
+      base_source: order-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: order
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: order
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: order_to_class__joined_label
+  instance_id: order_to_class
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: order-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_order_to_class
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: order_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: order-source
+      base_source: order-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: class_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_class_taxon_base
+        join_conditions:
+        - child: class_tax
+          parent: class_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: class-source
+      base_source: order-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_class_taxon_base
+      join_conditions:
+      - child: class_tax
+        parent: class_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_class_taxon_base
+        join_conditions:
+        - child: class_tax
+          parent: class_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: organism_identifier_plant__joined_label
+  instance_id: organism_identifier_plant
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{Species_ID}_organism_identifier_plant
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: organism
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Organism/{Species_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Organism/{Species_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: phylum_gbif_identifier__joined_label
+  instance_id: phylum_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: phylum-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_phylum_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: phylum_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: phylum-source
+      base_source: phylum-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: phylum_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: phylum_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: phylum_taxon_rank__joined_label
+  instance_id: phylum_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: phylum-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_phylum_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: phylum_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: phylum-source
+      base_source: phylum-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: phylum
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: phylum
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: phylum_to_kingdom__joined_label
+  instance_id: phylum_to_kingdom
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: phylum-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_phylum_to_kingdom
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: phylum_taxon
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: phylum-source
+      base_source: phylum-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: kingdom_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_kingdom_taxon_base
+        join_conditions:
+        - child: kingdom_tax
+          parent: kingdom_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: kingdom-source
+      base_source: phylum-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_kingdom_taxon_base
+      join_conditions:
+      - child: kingdom_tax
+        parent: kingdom_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_kingdom_taxon_base
+        join_conditions:
+        - child: kingdom_tax
+          parent: kingdom_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: plant_identifier_taxon__joined_label
+  instance_id: plant_identifier_taxon
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{Observation_ID}_identifier
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: species
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_species_base
+        join_conditions:
+        - child: gbif_id
+          parent: gbif_id
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: species-source
+      base_source: observations-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_species_base
+      join_conditions:
+      - child: gbif_id
+        parent: gbif_id
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_species_base
+        join_conditions:
+        - child: gbif_id
+          parent: gbif_id
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: plant_location__joined_label
+  instance_id: plant_location
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/locationStatementUnit/{Observation_ID}_plant_location
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: is located in
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: botanical_garden
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_botanical_garden_base
+        join_conditions:
+        - child: Botanic_Garden
+          parent: Botanic_Garden
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: botanical_garden-source
+      base_source: observations-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_botanical_garden_base
+      join_conditions:
+      - child: Botanic_Garden
+        parent: Botanic_Garden
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_botanical_garden_base
+        join_conditions:
+        - child: Botanic_Garden
+          parent: Botanic_Garden
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: species_gbif_identifier__joined_label
+  instance_id: species_gbif_identifier
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: species-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_GBIF
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: species
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: species-source
+      base_source: species-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has GBIF identifier
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: gbif_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: gbif_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: species_iucn_category__joined_label
+  instance_id: species_iucn_category
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: species-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/IUCNCategoryStatementUnit/{gbif_uri}_iucn_category
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: species
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: species-source
+      base_source: species-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has IUCN conservation status
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: iucn_category
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: iucn_category
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: species_picture__joined_label
+  instance_id: species_picture
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: species-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/hasImageStatementUnit/{gbif_uri}_picture
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: species
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: species-source
+      base_source: species-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has image
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: picture
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: picture
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: species_taxon_rank__joined_label
+  instance_id: species_taxon_rank
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: species-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_species_rank
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: species
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: species-source
+      base_source: species-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has taxon rank
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: null
+      role_term_map:
+        kind: constant
+        term_type: literal
+        constant: species
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: unresolved
+      reason: role does not reference a known entity instance
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: constant
+        term_type: literal
+        constant: species
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: false
+  unresolved_tokens:
+  - object_label
+  materialize: true
+- id: species_to_genus__joined_label
+  instance_id: species_to_genus
+  family: unary_statement
+  mode: joined_table
+  target: semantic_unit
+  source: species-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_species_to_genus
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: species
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: species-source
+      base_source: species-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    label_phrase:
+      kind: instance_value
+      path: label_phrase
+      value: has parent taxon
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: genus_taxon
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_genus_taxon_base
+        join_conditions:
+        - child: genus_tax
+          parent: genus_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: genus-source
+      base_source: species-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_genus_taxon_base
+      join_conditions:
+      - child: genus_tax
+        parent: genus_tax
+      join_strategy: parent_triples_map
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_genus_taxon_base
+        join_conditions:
+        - child: genus_tax
+          parent: genus_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: botanicalGarden_geo_index__joined_label
+  instance_id: botanicalGarden_geo_index
+  family: geo_index_statement
+  mode: joined_table
+  target: semantic_unit
+  source: botanical_garden-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{subject_label} located in city {object_label} has lat {latitude} and
+    long {longitude}'
+  fallback_template: '{subject_key} located in {object_key} has lat {latitude} and
+    long {longitude}'
+  tokens:
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: botanical_garden
+      role_term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: botanical_garden-source
+      base_source: botanical_garden-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    object_label:
+      kind: entity_label
+      role_path: roles.object
+      entity_ref: city
+      role_term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: true
+      status: resolved
+      entity_source: cities-source
+      base_source: botanical_garden-source
+      same_source: false
+      requires_join: true
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      parent_triples_map: TM_city_base
+      join_conditions:
+      - child: City
+        parent: City
+      join_strategy: parent_triples_map
+    latitude:
+      kind: term_map
+      path: roles.latitude
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: latitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#float
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: true
+    longitude:
+      kind: term_map
+      path: roles.longitude
+      term_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: longitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#float
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: true
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+    object_key:
+      kind: term_map
+      path: roles.object
+      term_map:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: true
+  requires_existing_labels: false
+  unresolved_tokens: []
+  materialize: true
+- id: GSL_complex_statement_unit__joined_label
+  instance_id: GSL_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: annual_phenology_complex_statement_unit__joined_label
+  instance_id: annual_phenology_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: firstflower_complex_statement_unit__joined_label
+  instance_id: firstflower_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: flowering_duration_complex_statement_unit__joined_label
+  instance_id: flowering_duration_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: flowering_phenology_complex_statement_unit__joined_label
+  instance_id: flowering_phenology_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: lastflower_complex_statement_unit__joined_label
+  instance_id: lastflower_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: leafUnf_complex_statement_unit__joined_label
+  instance_id: leafUnf_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: senOn_complex_statement_unit__joined_label
+  instance_id: senOn_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: vegetative_phenology_complex_statement_unit__joined_label
+  instance_id: vegetative_phenology_complex_statement_unit
+  family: complex_statement
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: null
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      kind: semantic_unit_label
+      path: roles.subject
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_index_label:
+      kind: semantic_unit_label
+      path: roles.time_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    time_order_label:
+      kind: semantic_unit_label
+      path: roles.time_order
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+    geo_index_label:
+      kind: semantic_unit_label
+      path: roles.geo_index
+      semantic_unit_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_label: true
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: annual_phenology_compound_unit__joined_label
+  instance_id: annual_phenology_compound_unit
+  family: compound_unit
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{compound_label} for {subject_label}: {association_labels}'
+  fallback_template: '{compound_label} for {subject_key}'
+  tokens:
+    compound_label:
+      kind: instance_value
+      path: compound_label
+      value: annual phenology
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    association_labels:
+      kind: association_member_labels
+      path: association_members
+      members:
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_labels: true
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: flowering_phenology_compound_unit__joined_label
+  instance_id: flowering_phenology_compound_unit
+  family: compound_unit
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{compound_label} for {subject_label}: {association_labels}'
+  fallback_template: '{compound_label} for {subject_key}'
+  tokens:
+    compound_label:
+      kind: instance_value
+      path: compound_label
+      value: flowering phenology
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    association_labels:
+      kind: association_member_labels
+      path: association_members
+      members:
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_labels: true
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true
+- id: vegetative_phenology_compound_unit__joined_label
+  instance_id: vegetative_phenology_compound_unit
+  family: compound_unit
+  mode: joined_table
+  target: semantic_unit
+  source: observations-source
+  subject_map:
+    kind: template
+    term_type: iri
+    constant: null
+    reference: null
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+    parent_triples_map: null
+    join_conditions: null
+    datatype: null
+    language: null
+    language_reference: null
+    language_template: null
+  predicate_map:
+    kind: constant
+    term_type: iri
+    constant: rdfs:label
+  template: '{compound_label} for {subject_label}: {association_labels}'
+  fallback_template: '{compound_label} for {subject_key}'
+  tokens:
+    compound_label:
+      kind: instance_value
+      path: compound_label
+      value: vegetative phenology
+    subject_label:
+      kind: entity_label
+      role_path: roles.subject
+      entity_ref: plant
+      role_term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      allow_join: false
+      status: resolved
+      entity_source: observations-source
+      base_source: observations-source
+      same_source: true
+      requires_join: false
+      label_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: label
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      join_strategy: same_source
+    association_labels:
+      kind: association_member_labels
+      path: association_members
+      members:
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      - kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      requires_existing_labels: true
+    subject_key:
+      kind: term_map
+      path: roles.subject
+      term_map:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      humanize_iri_constants: false
+  requires_join: false
+  requires_existing_labels: true
+  unresolved_tokens: []
+  materialize: true

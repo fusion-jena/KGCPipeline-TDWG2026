@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/IUCNCategoryStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3120060_iucn_category	3120060 has IUCN conservation status LEAST_CONCERN	species_iucn_category__joined_label	1

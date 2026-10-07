@@ -1,0 +1,88 @@
+id: geo_index_statement
+extends: semunit:assertionalStatementUnit
+execution_layer: 20
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - roles
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+    object:
+      path: roles.object
+      required: true
+      default_term_type: iri
+    latitude:
+      path:
+      - roles.latitude
+      - roles.lat
+      default_reference: latitude
+      term_type: literal
+      datatype: xsd:float
+    longitude:
+      path:
+      - roles.longitude
+      - roles.long
+      default_reference: longitude
+      term_type: literal
+      datatype: xsd:float
+emit_bundles:
+- id: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:assertionalStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+- id: assertion_graph
+  subject_map: roles.subject
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: ro:locatedIn
+    object_map: roles.object
+  - predicate_map:
+      constant: geo:lat
+    object_map: roles.latitude
+  - predicate_map:
+      constant: geo:long
+    object_map: roles.longitude
+joined_label_map:
+  mode: joined_table
+  target: semantic_unit
+  template: '{subject_label} located in city {object_label} has lat {latitude} and
+    long {longitude}'
+  fallback_template: '{subject_key} located in {object_key} has lat {latitude} and
+    long {longitude}'
+  tokens:
+    subject_label:
+      from_entity_label: roles.subject
+    subject_key:
+      from: roles.subject
+      humanize_iri_constants: false
+    object_label:
+      from_entity_label: roles.object
+      allow_join: true
+    object_key:
+      from: roles.object
+      humanize_iri_constants: false
+    latitude:
+      from: roles.latitude
+    longitude:
+      from: roles.longitude

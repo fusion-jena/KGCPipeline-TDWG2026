@@ -1,0 +1,190 @@
+id: scalar_observation_statement
+extends: semunit:observationStatementUnit
+execution_layer: 10
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - roles
+  - resources
+  - label_map
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+    assay_type:
+      path: roles.assay_type
+      default_constant: obi:plannedProcess
+      term_type: iri
+    quality:
+      path: roles.quality
+      required: true
+      default_term_type: iri
+    value:
+      path: roles.value
+      required: true
+      default_term_type: literal
+    unit:
+      path: roles.unit
+      required: true
+      default_term_type: iri
+  resources:
+    assay:
+      path: resources.assay
+      default_template: ex:Assay/{Observation_ID}_{instance_id}
+    datum:
+      path: resources.datum
+      default_template: ex:Datum/{Observation_ID}_{instance_id}
+    specification:
+      path: resources.specification
+      default_template: ex:Specification/{Observation_ID}_{instance_id}
+    quality_instance:
+      path: resources.quality_instance
+      default_template: ex:Quality/{Observation_ID}_{instance_id}
+    unit_label:
+      path: resources.unit_label
+      default_template: ex:UnitLabel/{Observation_ID}_{instance_id}
+emit_bundles:
+- id: semantic_unit_resource
+  kind: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:assertionalStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:observationStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+- id: assay_resource
+  kind: minted_resource
+  subject_map: resources.assay
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map: roles.assay_type
+- id: datum_resource
+  kind: minted_resource
+  subject_map: resources.datum
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: iao:scalarMeasurementDatum
+      term_type: iri
+      preserve_curie: true
+- id: specification_resource
+  kind: minted_resource
+  subject_map: resources.specification
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: obi:scalarValueSpecification
+      term_type: iri
+      preserve_curie: true
+- id: quality_resource
+  kind: minted_resource
+  subject_map: resources.quality_instance
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map: roles.quality
+- id: unit_label_resource
+  kind: minted_resource
+  subject_map: resources.unit_label
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: iao:measurementUnitLabel
+      term_type: iri
+      preserve_curie: true
+  - predicate_map:
+      constant: rdf:type
+    object_map: roles.unit
+- id: assertion_subject_graph
+  kind: assertion_graph
+  subject_map: roles.subject
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: obi:isSpecifiedInputOf
+    object_map: resources.assay
+  - predicate_map:
+      constant: ro:hasQuality
+    object_map: resources.quality_instance
+- id: assertion_assay_graph
+  kind: assertion_graph
+  subject_map: resources.assay
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: obi:hasSpecifiedOutput
+    object_map: resources.datum
+  - predicate_map:
+      constant: obi:hasSpecifiedInput
+    object_map: roles.subject
+- id: assertion_datum_graph
+  kind: assertion_graph
+  subject_map: resources.datum
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: obi:hasValueSpecification
+    object_map: resources.specification
+  - predicate_map:
+      constant: iao:isQualityMeasurementOf
+    object_map: resources.quality_instance
+- id: assertion_specification_graph
+  kind: assertion_graph
+  subject_map: resources.specification
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: iao:hasMeasurementValue
+    object_map: roles.value
+  - predicate_map:
+      constant: iao:hasMeasurementUnitLabel
+    object_map: resources.unit_label
+- id: assertion_unit_label_graph
+  kind: assertion_graph
+  subject_map: resources.unit_label
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map: roles.unit
+default_label_map:
+  template: '{subject} has quality {quality} with value {value} and unit {unit}'
+  tokens:
+    subject:
+      from_entity_label: roles.subject
+    quality:
+      from: roles.quality
+    value:
+      from: roles.value
+    unit:
+      from: roles.unit
+      humanize_iri_constants: false

@@ -1,0 +1,79 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+{% for prefix, iri in prefixes.items() %}
+@prefix {{ prefix }}: <{{ iri }}> .
+{% endfor %}
+
+{% macro term_type_line(tm, indent='    ') -%}
+{% if tm.term_type == 'iri' -%}
+{{ indent }}rr:termType rr:IRI
+{%- elif tm.term_type == 'blanknode' -%}
+{{ indent }}rr:termType rr:BlankNode
+{%- elif tm.term_type == 'literal' -%}
+{{ indent }}rr:termType rr:Literal
+{%- endif %}
+{%- endmacro %}
+
+{% for tm in triples_maps %}
+{{ tm.id_rendered }} a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source {{ tm.logical_source.access | tojson }} ;
+    rml:referenceFormulation {{ tm.logical_source.ql_formulation }}{% if tm.logical_source.emit_iterator %} ;
+    rml:iterator {{ tm.logical_source.iterator | tojson }}{% endif %}
+  ] ;
+  rr:subjectMap [
+{% if tm.subject_map.constant_rendered is defined %}
+    rr:constant {{ tm.subject_map.constant_rendered }} ;
+{% endif %}
+{% if tm.subject_map.template_rendered is defined %}
+    rr:template {{ tm.subject_map.template_rendered }} ;
+{% endif %}
+{% if tm.subject_map.reference_rendered is defined %}
+    rml:reference {{ tm.subject_map.reference_rendered }} ;
+{% endif %}
+{{ term_type_line(tm.subject_map) }}{% if tm.subject_map.graph_constant_rendered is defined or tm.subject_map.graph_template_rendered is defined or tm.subject_map.graph_reference_rendered is defined %} ;
+{% if tm.subject_map.graph_constant_rendered is defined %}
+    rr:graphMap [ rr:constant {{ tm.subject_map.graph_constant_rendered }} ]
+{% elif tm.subject_map.graph_template_rendered is defined %}
+    rr:graphMap [ rr:template {{ tm.subject_map.graph_template_rendered }} ]
+{% elif tm.subject_map.graph_reference_rendered is defined %}
+    rr:graphMap [ rml:reference {{ tm.subject_map.graph_reference_rendered }} ; rr:termType rr:IRI ]
+{% endif %}
+{% endif %}
+  ]{% if tm.predicate_object_maps %} ;{% else %} .{% endif %}
+{% for pom in tm.predicate_object_maps %}
+  rr:predicateObjectMap [
+    rr:predicate {{ pom.predicate_constant_rendered }} ;
+    rr:objectMap [
+{% set om = pom.object_map %}
+{% if om.constant_rendered is defined %}
+      rr:constant {{ om.constant_rendered }} ;
+{% endif %}
+{% if om.template_rendered is defined %}
+      rr:template {{ om.template_rendered }} ;
+{% endif %}
+{% if om.reference_rendered is defined %}
+      rml:reference {{ om.reference_rendered }} ;
+{% endif %}
+{% if om.parent_triples_map_rendered is defined %}
+      rr:parentTriplesMap {{ om.parent_triples_map_rendered }}{% if om.join_conditions %} ;
+{% for jc in om.join_conditions %}
+      rr:joinCondition [
+        rr:child {{ jc.child | tojson }} ;
+        rr:parent {{ jc.parent | tojson }}
+      ]{% if not loop.last %} ;{% endif %}
+{% endfor %}
+{% endif %}
+{% else %}
+{{ term_type_line(om, '      ') }}{% if om.datatype_rendered is defined %} ;
+      rr:datatype {{ om.datatype_rendered }}{% elif om.language is defined and om.language %} ;
+      rr:language {{ om.language | tojson }}{% elif om.language_reference_rendered is defined %} ;
+      rml:languageMap [ rml:reference {{ om.language_reference_rendered }} ]{% elif om.language_template_rendered is defined %} ;
+      rml:languageMap [ rr:template {{ om.language_template_rendered }} ]{% endif %}
+{% endif %}
+    ]
+  ]{% if not loop.last %} ;{% else %} .{% endif %}
+{% endfor %}
+
+{% endfor %}

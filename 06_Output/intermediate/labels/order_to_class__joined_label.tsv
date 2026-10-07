@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/parentTaxonStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F414_order_to_class	Asterales has parent taxon Magnoliopsida	order_to_class__joined_label	1

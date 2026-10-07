@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/taxonRankStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3119995_genus_rank	3119995 has taxon rank genus	genus_taxon_rank__joined_label	1

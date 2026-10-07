@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/taxonRankStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F7707728_phylum_rank	7707728 has taxon rank phylum	phylum_taxon_rank__joined_label	1

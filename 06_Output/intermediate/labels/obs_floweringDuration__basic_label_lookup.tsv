@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/fldurStatementUnit/Ach_mil_Hal_2023_obs_fldur	Achillea millefolium has quality flowering duration with value 56 and unit unitDay	obs_floweringDuration__basic_label_lookup	1
+http://example.com/base/SU/fldurStatementUnit/Ach_mil_Hal_2024_obs_fldur	Achillea millefolium has quality flowering duration with value 94 and unit unitDay	obs_floweringDuration__basic_label_lookup	2
+http://example.com/base/SU/fldurStatementUnit/Ach_mil_Jen_2023_obs_fldur	Achillea millefolium has quality flowering duration with value 84 and unit unitDay	obs_floweringDuration__basic_label_lookup	3
+http://example.com/base/SU/fldurStatementUnit/Ach_mil_Jen_2024_obs_fldur	Achillea millefolium has quality flowering duration with value 153 and unit unitDay	obs_floweringDuration__basic_label_lookup	4

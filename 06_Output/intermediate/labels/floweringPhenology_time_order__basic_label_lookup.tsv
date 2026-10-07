@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/timeOrderStatementUnit/Ach_mil_Hal_2023_obs_floweringPhenology	Time order: position 2023	floweringPhenology_time_order__basic_label_lookup	1
+http://example.com/base/SU/timeOrderStatementUnit/Ach_mil_Hal_2024_obs_floweringPhenology	Time order: position 2024	floweringPhenology_time_order__basic_label_lookup	2
+http://example.com/base/SU/timeOrderStatementUnit/Ach_mil_Jen_2023_obs_floweringPhenology	Time order: position 2023	floweringPhenology_time_order__basic_label_lookup	3
+http://example.com/base/SU/timeOrderStatementUnit/Ach_mil_Jen_2024_obs_floweringPhenology	Time order: position 2024	floweringPhenology_time_order__basic_label_lookup	4

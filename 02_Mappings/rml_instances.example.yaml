@@ -1,0 +1,1584 @@
+prefixes:
+  ex: http://example.com/base/
+  semunit: http://example.com/semunit/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dcterms: http://purl.org/dc/terms/
+  schema: http://schema.org/
+  envo: http://purl.obolibrary.org/obo/ENVO_
+  ro: http://purl.obolibrary.org/obo/RO_
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  dwc: http://rs.tdwg.org/dwc/terms/
+  obi: http://purl.obolibrary.org/obo/OBI_
+  iao: http://purl.obolibrary.org/obo/IAO_
+  ppo: http://purl.obolibrary.org/obo/PPO_
+  time: http://www.w3.org/2006/time#
+  bfo: http://purl.obolibrary.org/obo/BFO_
+  po: http://purl.obolibrary.org/obo/PO_
+  wd: http://www.wikidata.org/entity/
+  wdt: http://www.wikidata.org/prop/direct/
+sources:
+  cities-source:
+    access: 01_InputData/cities.tsv
+    format: tsv
+    delimiter: "\t"
+  botanical_garden-source:
+    access: 01_InputData/botanical_gardens.tsv
+    format: tsv
+    delimiter: "\t"
+  observations-source:
+    access: 01_InputData/observations.tsv
+    format: tsv
+    delimiter: "\t"
+  species-source:
+    access: 01_InputData/species.tsv
+    format: tsv
+    delimiter: "\t"
+  names-source:
+    access: 01_InputData/names.tsv
+    format: tsv
+    delimiter: "\t"
+  genus-source:
+    access: 01_InputData/genus.tsv
+    format: tsv
+    delimiter: "\t"
+  family-source:
+    access: 01_InputData/family.tsv
+    format: tsv
+    delimiter: "\t"
+  order-source:
+    access: 01_InputData/order.tsv
+    format: tsv
+    delimiter: "\t"
+  class-source:
+    access: 01_InputData/class.tsv
+    format: tsv
+    delimiter: "\t"
+  phylum-source:
+    access: 01_InputData/phylum.tsv
+    format: tsv
+    delimiter: "\t"
+  kingdom-source:
+    access: 01_InputData/kingdom.tsv
+    format: tsv
+    delimiter: "\t"
+
+instances:
+  city:
+    family: entity
+    source: cities-source
+    entity:
+      class: schema:City
+      subject_map:
+        reference: wikidata_id
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  botanical_garden:
+    family: entity
+    source: botanical_garden-source
+    entity:
+      class: envo:BotanicalGarden
+      subject_map:
+        reference: wikidata_id
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  plant:
+    family: entity
+    source: observations-source
+    entity:
+      class: dwc:Occurrence
+      subject_map:
+        template: ex:Plant/{Observation_ID}
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  organism:
+    family: entity
+    source: observations-source
+    entity:
+      class: dwc:Organism
+      subject_map:
+        template: ex:Organism/{Species_ID}
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  species:
+    family: entity
+    source: species-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  species_names:
+    family: entity
+    source: names-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+        language_reference: rdf_lang
+  
+  genus_taxon:
+    family: entity
+    source: genus-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  family_taxon:
+    family: entity
+    source: family-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  order_taxon:
+    family: entity
+    source: order-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  class_taxon:
+    family: entity
+    source: class-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  phylum_taxon:
+    family: entity
+    source: phylum-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  kingdom_taxon:
+    family: entity
+    source: kingdom-source
+    entity:
+      class: dwc:Taxon
+      subject_map:
+        reference: gbif_uri
+        term_type: iri
+      label_map:
+        reference: label
+        term_type: literal
+  garden_location:
+    family: unary_statement
+    source: botanical_garden-source
+    statement_unit_type: semunit:locationStatementUnit
+    label_phrase: is located in 
+    semantic_unit:
+      subject_map:
+        template: ex:SU/locationStatementUnit/{Botanic_Garden}_garden_location
+        term_type: iri
+    roles:
+      subject:
+        instance: botanical_garden
+      predicate:
+        constant: ro:locatedIn
+      object:
+        instance: city
+        join_conditions:
+        - child: City
+          parent: City
+  garden_coordinates:
+    family: coordinates_statement
+    source: botanical_garden-source
+    statement_unit_type: semunit:coordinatesStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/coordinatesStatementUnit/{Botanic_Garden}_coordinates
+        term_type: iri
+    roles:
+      subject:
+        instance: botanical_garden
+      latitude:
+        reference: latitude
+        term_type: literal
+        datatype: xsd:decimal
+      longitude:
+        reference: longitude
+        term_type: literal
+        datatype: xsd:decimal
+  botanicalGarden_geo_index:
+    family: geo_index_statement
+    source: botanical_garden-source
+    statement_unit_type: semunit:geoIndexStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        term_type: iri
+    roles:
+      subject:
+        instance: botanical_garden
+      object:
+        instance: city
+        join_conditions:
+        - child: City
+          parent: City
+      latitude:
+        reference: latitude
+        term_type: literal
+        datatype: xsd:float
+      longitude:
+        reference: longitude
+        term_type: literal
+        datatype: xsd:float
+  plant_location:
+    family: unary_statement
+    source: observations-source
+    statement_unit_type: semunit:locationStatementUnit
+    label_phrase: is located in 
+    
+    semantic_unit:
+      subject_map:
+        template: ex:SU/locationStatementUnit/{Observation_ID}_plant_location
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      predicate:
+        constant: ro:locatedIn
+      object:
+        instance: botanical_garden
+        join_conditions:
+        - child: Botanic_Garden
+          parent: Botanic_Garden
+  plant_identifier_taxon:
+    family: unary_statement
+    source: observations-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has identifier
+
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{Observation_ID}_identifier
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      predicate:
+        constant: dcterms:identifier
+      object:
+        instance: species
+        join_conditions:
+        - child: gbif_id
+          parent: gbif_id
+  organism_identifier_plant:
+    family: unary_statement
+    source: observations-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{Species_ID}_organism_identifier_plant
+        term_type: iri
+    roles:
+      subject:
+        instance: organism
+      predicate:
+        constant: dcterms:identifier
+      object:
+        instance: plant
+  species_gbif_identifier:
+    family: unary_statement
+    source: species-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: species
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: gbif_id
+        term_type: literal
+        datatype: xsd:string
+    label_phrase: has GBIF identifier
+
+  species_picture:
+    family: unary_statement
+    source: species-source
+    statement_unit_type: semunit:hasImageStatementUnit
+    label_phrase: has image
+
+    semantic_unit:
+      subject_map:
+        template: ex:SU/hasImageStatementUnit/{gbif_uri}_picture
+        term_type: iri
+    roles:
+      subject:
+        instance: species
+      predicate:
+        constant: schema:url
+      object:
+        reference: picture
+        term_type: literal
+        datatype: xsd:string
+
+  species_iucn_category:
+    family: unary_statement
+    source: species-source
+    statement_unit_type: semunit:IUCNCategoryStatementUnit
+    label_phrase: has IUCN conservation status
+    semantic_unit:
+      subject_map:
+        template: ex:SU/IUCNCategoryStatementUnit/{gbif_uri}_iucn_category
+        term_type: iri
+    roles:
+      subject:
+        instance: species
+      predicate:
+        constant: wdt:P141
+      object:
+        reference: iucn_category
+        term_type: literal
+        datatype: xsd:string
+  species_taxon_rank:
+    family: unary_statement
+    source: species-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_species_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: species
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: species
+        term_type: literal
+        datatype: xsd:string
+  genus_gbif_identifier:
+    family: unary_statement
+    source: genus-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_genus_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: genus_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: genus_key
+        term_type: literal
+        datatype: xsd:string
+  genus_taxon_rank:
+    family: unary_statement
+    source: genus-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_genus_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: genus_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: genus
+        term_type: literal
+        datatype: xsd:string
+  family_gbif_identifier:
+    family: unary_statement
+    source: family-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_family_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: family_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: family_key
+        term_type: literal
+        datatype: xsd:string
+  family_taxon_rank:
+    family: unary_statement
+    source: family-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_family_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: family_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: family
+        term_type: literal
+        datatype: xsd:string
+  order_gbif_identifier:
+    family: unary_statement
+    source: order-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_order_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: order_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: order_key
+        term_type: literal
+        datatype: xsd:string
+  order_taxon_rank:
+    family: unary_statement
+    source: order-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_order_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: order_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: order
+        term_type: literal
+        datatype: xsd:string
+  class_gbif_identifier:
+    family: unary_statement
+    source: class-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_class_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: class_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: class_key
+        term_type: literal
+        datatype: xsd:string
+  class_taxon_rank:
+    family: unary_statement
+    source: class-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_class_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: class_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: class
+        term_type: literal
+        datatype: xsd:string
+  phylum_gbif_identifier:
+    family: unary_statement
+    source: phylum-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_phylum_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: phylum_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: phylum_key
+        term_type: literal
+        datatype: xsd:string
+  phylum_taxon_rank:
+    family: unary_statement
+    source: phylum-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_phylum_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: phylum_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: phylum
+        term_type: literal
+        datatype: xsd:string
+  kingdom_gbif_identifier:
+    family: unary_statement
+    source: kingdom-source
+    statement_unit_type: semunit:identifierStatementUnit
+    label_phrase: has GBIF identifier
+    semantic_unit:
+      subject_map:
+        template: ex:SU/identifierStatementUnit/{gbif_uri}_kingdom_GBIF
+        term_type: iri
+    roles:
+      subject:
+        instance: kingdom_taxon
+      predicate:
+        constant: dwc:taxonID
+      object:
+        reference: kingdom_key
+        term_type: literal
+        datatype: xsd:string
+  kingdom_taxon_rank:
+    family: unary_statement
+    source: kingdom-source
+    statement_unit_type: semunit:taxonRankStatementUnit
+    label_phrase: has taxon rank
+    semantic_unit:
+      subject_map:
+        template: ex:SU/taxonRankStatementUnit/{gbif_uri}_kingdom_rank
+        term_type: iri
+    roles:
+      subject:
+        instance: kingdom_taxon
+      predicate:
+        constant: dwc:taxonRank
+      object:
+        constant: kingdom
+        term_type: literal
+        datatype: xsd:string
+  species_to_genus:
+    family: unary_statement
+    source: species-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_species_to_genus
+        term_type: iri
+    roles:
+      subject:
+        instance: species
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: genus_taxon
+        join_conditions:
+        - child: genus_tax
+          parent: genus_tax
+  genus_to_family:
+    family: unary_statement
+    source: genus-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_genus_to_family
+        term_type: iri
+    roles:
+      subject:
+        instance: genus_taxon
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: family_taxon
+        join_conditions:
+        - child: family_tax
+          parent: family_tax
+  family_to_order:
+    family: unary_statement
+    source: family-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_family_to_order
+        term_type: iri
+    roles:
+      subject:
+        instance: family_taxon
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: order_taxon
+        join_conditions:
+        - child: order_tax
+          parent: order_tax
+  order_to_class:
+    family: unary_statement
+    source: order-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_order_to_class
+        term_type: iri
+    roles:
+      subject:
+        instance: order_taxon
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: class_taxon
+        join_conditions:
+        - child: class_tax
+          parent: class_tax
+  class_to_phylum:
+    family: unary_statement
+    source: class-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_class_to_phylum
+        term_type: iri
+    roles:
+      subject:
+        instance: class_taxon
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: phylum_taxon
+        join_conditions:
+        - child: phylum_tax
+          parent: phylum_tax
+  phylum_to_kingdom:
+    family: unary_statement
+    source: phylum-source
+    statement_unit_type: semunit:parentTaxonStatementUnit
+    label_phrase: has parent taxon
+    semantic_unit:
+      subject_map:
+        template: ex:SU/parentTaxonStatementUnit/{gbif_uri}_phylum_to_kingdom
+        term_type: iri
+    roles:
+      subject:
+        instance: phylum_taxon
+      predicate:
+        constant: dwc:parentNameUsageID
+      object:
+        instance: kingdom_taxon
+        join_conditions:
+        - child: kingdom_tax
+          parent: kingdom_tax
+  obs_leafUnf:
+    family: observation_statement
+    source: observations-source
+    statement_unit_type: semunit:leafUnfStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ppo:matureTrueLeafPresent
+      value:
+        constant: 'true'
+        term_type: literal
+        datatype: xsd:boolean
+  obs_senOn:
+    family: observation_statement
+    source: observations-source
+    statement_unit_type: semunit:senOnStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ppo:senescedTrueLeafPresent
+      value:
+        constant: 'true'
+        term_type: literal
+        datatype: xsd:boolean
+  obs_GSL:
+    family: scalar_observation_statement
+    source: observations-source
+    statement_unit_type: semunit:GSLStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ex:growingSeasonLength
+      value:
+        reference: GSL
+        term_type: literal
+        datatype: xsd:integer
+      unit:
+        constant: time:unitDay
+  obs_FirstFlower:
+    family: observation_statement
+    source: observations-source
+    statement_unit_type: semunit:firstFlowerStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ppo:pollenReleasingInflorescencePresent
+      value:
+        constant: true
+        term_type: literal
+        datatype: xsd:boolean
+  obs_LastFlower:
+    family: observation_statement
+    source: observations-source
+    statement_unit_type: semunit:lastFlowerStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ppo:openInflorescencePresent
+      value:
+        constant: true
+        term_type: literal
+        datatype: xsd:boolean
+  obs_floweringDuration:
+    family: scalar_observation_statement
+    source: observations-source
+    statement_unit_type: semunit:floweringDurationStatementUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+      assay_type:
+        constant: ppo:phenologyObservingProcess
+      quality:
+        constant: ex:floweringDuration
+      value:
+        reference: FloweringDuration
+        term_type: literal
+        datatype: xsd:integer
+      unit:
+        constant: time:unitDay
+  leafUnf_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_leafUnf
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_leafUnf
+          term_type: iri
+    time:
+      fields:
+      - predicate: time:unitType
+        object_map:
+          constant: time:unitDay
+          term_type: iri
+      - predicate: time:year
+        object_map:
+          reference: Year
+          term_type: literal
+          datatype: xsd:int
+      - predicate: time:dayOfYear
+        object_map:
+          reference: LeafUnf
+          term_type: literal
+          datatype: xsd:int
+  senOn_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_senOn
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_senOn
+          term_type: iri
+    time:
+      fields:
+      - predicate: time:unitType
+        object_map:
+          constant: time:unitDay
+          term_type: iri
+      - predicate: time:year
+        object_map:
+          reference: Year
+          term_type: literal
+          datatype: xsd:int
+      - predicate: time:dayOfYear
+        object_map:
+          reference: SenOn
+          term_type: literal
+          datatype: xsd:int
+  firstflower_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+    time:
+      fields:
+      - predicate: time:unitType
+        object_map:
+          constant: time:unitDay
+          term_type: iri
+      - predicate: time:year
+        object_map:
+          reference: Year
+          term_type: literal
+          datatype: xsd:int
+      - predicate: time:dayOfYear
+        object_map:
+          reference: FirstFlower
+          term_type: literal
+          datatype: xsd:int
+  lastflower_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_LastFlower
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_LastFlower
+          term_type: iri
+    time:
+      fields:
+      - predicate: time:unitType
+        object_map:
+          constant: time:unitDay
+          term_type: iri
+      - predicate: time:year
+        object_map:
+          reference: Year
+          term_type: literal
+          datatype: xsd:int
+      - predicate: time:dayOfYear
+        object_map:
+          reference: LastFlower
+          term_type: literal
+          datatype: xsd:int
+  annualPhenology_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_annualPhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+    time:
+      fields: &id001
+      - predicate: time:unitType
+        object_map:
+          constant: time:unitYear
+          term_type: iri
+      - predicate: time:year
+        object_map:
+          reference: Year
+          term_type: literal
+          datatype: xsd:int
+  vegetativePhenology_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_vegetativePhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+    time:
+      fields: *id001
+  floweringPhenology_time_index:
+    family: time_index_statement
+    source: observations-source
+    statement_unit_type: semunit:timeIndexStatementUnit
+    emit_semantic_unit_has_time: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_phenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+      time_description:
+        subject_map:
+          template: ex:/DateTimeDescription/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+    time:
+      fields: *id001
+  leafUnf_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_leafUnf
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_leafUnf
+          term_type: iri
+    position:
+      reference: LeafUnf_pos
+      term_type: literal
+      datatype: xsd:int
+  senOn_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_senOn
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_senOn
+          term_type: iri
+    position:
+      reference: SenOn_pos
+      term_type: literal
+      datatype: xsd:int
+  firstflower_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+    position:
+      reference: FirstFlower_pos
+      term_type: literal
+      datatype: xsd:int
+  lastflower_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_LastFlower
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_LastFlower
+          term_type: iri
+    position:
+      reference: LastFlower_pos
+      term_type: literal
+      datatype: xsd:int
+  annualPhenology_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+    position:
+      reference: Year
+      term_type: literal
+      datatype: xsd:int
+  vegetativePhenology_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+    position:
+      reference: Year
+      term_type: literal
+      datatype: xsd:int
+  floweringPhenology_time_order:
+    family: time_order_statement
+    source: observations-source
+    statement_unit_type: semunit:timeOrderStatementUnit
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    semantic_unit:
+      subject_map:
+        template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+      time_position:
+        subject_map:
+          template: ex:TimePosition/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+    position:
+      reference: Year
+      term_type: literal
+      datatype: xsd:int
+  leafUnf_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_leafUnf
+          term_type: iri
+  senOn_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_senOn
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_senOn
+          term_type: iri
+  firstflower_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_FirstFlower
+          term_type: iri
+  lastflower_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_LastFlower
+          term_type: iri
+  flowering_duration_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_fldur
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+  GSL_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_GSL
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+  annual_phenology_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_annualPhenology
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_annualPhenology
+          term_type: iri
+  vegetative_phenology_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_vegetativePhenology
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_vegetativePhenology
+          term_type: iri
+  flowering_phenology_complex_statement_unit:
+    family: complex_statement
+    source: observations-source
+    statement_unit_type: semunit:complexStatementUnit
+    emit_complex_graph_triples: true
+    semantic_unit:
+      subject_map:
+        template: ex:SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+        term_type: iri
+    roles:
+      subject:
+        subject_map:
+          template: ex:SU/compoundUnit/{Observation_ID}_phenology
+          term_type: iri
+      geo_index:
+        subject_map:
+          template: ex:SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+          term_type: iri
+      time_index:
+        subject_map:
+          template: ex:SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+      time_order:
+        subject_map:
+          template: ex:SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+    resources:
+      temporal_entity:
+        subject_map:
+          template: ex:/temporalEntity/{Observation_ID}_obs_floweringPhenology
+          term_type: iri
+  annual_phenology_compound_unit:
+    family: compound_unit
+    source: observations-source
+    statement_unit_type: semunit:annualPhenologyCompoundUnit
+    compound_label: annual phenology
+    semantic_unit:
+      subject_map:
+        template: ex:SU/compoundUnit/{Observation_ID}_annualPhenology
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+    association_refs:
+    - ref: leafUnf_complex_statement_unit
+    - ref: senOn_complex_statement_unit
+    - ref: GSL_complex_statement_unit
+    - ref: firstflower_complex_statement_unit
+    - ref: lastflower_complex_statement_unit
+    - ref: flowering_duration_complex_statement_unit
+  vegetative_phenology_compound_unit:
+    family: compound_unit
+    source: observations-source
+    statement_unit_type: semunit:vegetativePhenologyCompoundUnit
+    compound_label: vegetative phenology
+    semantic_unit:
+      subject_map:
+        template: ex:SU/compoundUnit/{Observation_ID}_vegetativePhenology
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+    association_refs:
+    - ref: leafUnf_complex_statement_unit
+    - ref: senOn_complex_statement_unit
+    - ref: GSL_complex_statement_unit
+  flowering_phenology_compound_unit:
+    family: compound_unit
+    source: observations-source
+    statement_unit_type: semunit:floweringPhenologyCompoundUnit
+    semantic_unit:
+      subject_map:
+        template: ex:SU/compoundUnit/{Observation_ID}_phenology
+        term_type: iri
+    roles:
+      subject:
+        instance: plant
+    association_refs:
+    - ref: firstflower_complex_statement_unit
+    - ref: lastflower_complex_statement_unit
+    - ref: flowering_duration_complex_statement_unit
+    compound_label: flowering phenology

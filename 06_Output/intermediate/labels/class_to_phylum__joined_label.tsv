@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/parentTaxonStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F220_class_to_phylum	Magnoliopsida has parent taxon Tracheophyta	class_to_phylum__joined_label	1

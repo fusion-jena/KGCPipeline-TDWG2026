@@ -1,0 +1,3 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/coordinatesStatementUnit/Halle_BotanicGarden_coordinates	Botanischer Garten der Martin-Luther-Universität Halle-Wittenberg has lat 51.4889 and long 11.9614	garden_coordinates__basic_label_lookup	1
+http://example.com/base/SU/coordinatesStatementUnit/Jena_BotanicGarden_coordinates	Botanischer Garten Jena has lat 50.9311 and long 11.5861	garden_coordinates__basic_label_lookup	2

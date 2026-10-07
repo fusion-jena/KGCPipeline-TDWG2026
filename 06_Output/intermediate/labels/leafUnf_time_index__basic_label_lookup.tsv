@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/timeIndexStatementUnit/Ach_mil_Hal_2023_obs_leafUnf	Time index: day 6 of year 2023	leafUnf_time_index__basic_label_lookup	1
+http://example.com/base/SU/timeIndexStatementUnit/Ach_mil_Hal_2024_obs_leafUnf	Time index: day 4 of year 2024	leafUnf_time_index__basic_label_lookup	2
+http://example.com/base/SU/timeIndexStatementUnit/Ach_mil_Jen_2023_obs_leafUnf	Time index: day 4 of year 2023	leafUnf_time_index__basic_label_lookup	3
+http://example.com/base/SU/timeIndexStatementUnit/Ach_mil_Jen_2024_obs_leafUnf	Time index: day 37 of year 2024	leafUnf_time_index__basic_label_lookup	4

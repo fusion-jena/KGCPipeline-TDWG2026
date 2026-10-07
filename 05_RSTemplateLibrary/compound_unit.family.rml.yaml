@@ -1,0 +1,100 @@
+id: compound_unit
+extends: semunit:compoundUnit
+execution_layer: 40
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - roles
+  - association_members
+  - resources
+  - emit_complex_graph_triples
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+  collections:
+    association_members:
+      builder: association_members
+  resources:
+    temporal_entity:
+      path: resources.temporal_entity
+    complex_graph:
+      path: resources.complex_graph
+    geo_index:
+      path: roles.geo_index
+  values:
+    emit_complex_graph_triples:
+      kind: bool
+      path: emit_complex_graph_triples
+      default: false
+emit_bundles:
+- id: semantic_unit_resource
+  kind: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:compoundUnit
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+    when_not_equals:
+    - statement_unit_type
+    - semunit:compoundUnit
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+  - for_each: association_members
+    predicate_map:
+      constant: semunit:hasAssociatedSemanticUnit
+    object_map: $item
+- id: complex_graph_occurs_in
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: resources.geo_index
+  subject_map: semantic_unit.subject_map
+  graph_map: resources.complex_graph
+  predicate_object_maps:
+  - predicate_map:
+      constant: bfo:occursIn
+    object_map: resources.geo_index
+- id: complex_graph_has_time
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: resources.temporal_entity
+  subject_map: semantic_unit.subject_map
+  graph_map: resources.complex_graph
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:hasTime
+    object_map: resources.temporal_entity
+joined_label_map:
+  mode: joined_table
+  target: semantic_unit
+  template: '{compound_label} for {subject_label}: {association_labels}'
+  fallback_template: '{compound_label} for {subject_key}'
+  tokens:
+    compound_label:
+      from_instance: compound_label
+      default: compound
+    subject_label:
+      from_entity_label: roles.subject
+    subject_key:
+      from: roles.subject
+      humanize_iri_constants: false
+    association_labels:
+      from_association_member_labels: association_members

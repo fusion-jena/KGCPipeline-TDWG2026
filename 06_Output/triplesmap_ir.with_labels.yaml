@@ -1,0 +1,4153 @@
+prefixes:
+  ex: http://example.com/base/
+  semunit: http://example.com/semunit/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dcterms: http://purl.org/dc/terms/
+  schema: http://schema.org/
+  envo: http://purl.obolibrary.org/obo/ENVO_
+  ro: http://purl.obolibrary.org/obo/RO_
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  dwc: http://rs.tdwg.org/dwc/terms/
+  obi: http://purl.obolibrary.org/obo/OBI_
+  iao: http://purl.obolibrary.org/obo/IAO_
+  ppo: http://purl.obolibrary.org/obo/PPO_
+  time: http://www.w3.org/2006/time#
+  bfo: http://purl.obolibrary.org/obo/BFO_
+  po: http://purl.obolibrary.org/obo/PO_
+  wd: http://www.wikidata.org/entity/
+  wdt: http://www.wikidata.org/prop/direct/
+sources:
+- id: cities-source
+  access: 01_InputData/cities.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: botanical_garden-source
+  access: 01_InputData/botanical_gardens.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: observations-source
+  access: 01_InputData/observations.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: species-source
+  access: 01_InputData/species.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: names-source
+  access: 01_InputData/names.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: genus-source
+  access: 01_InputData/genus.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: family-source
+  access: 01_InputData/family.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: order-source
+  access: 01_InputData/order.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: class-source
+  access: 01_InputData/class.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: phylum-source
+  access: 01_InputData/phylum.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: kingdom-source
+  access: 01_InputData/kingdom.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__class_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/class_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__class_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/class_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__class_to_phylum__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/class_to_phylum__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__family_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/family_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__family_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/family_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__family_to_order__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/family_to_order__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__garden_location__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/garden_location__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__genus_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/genus_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__genus_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/genus_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__genus_to_family__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/genus_to_family__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__kingdom_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/kingdom_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__kingdom_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/kingdom_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__order_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/order_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__order_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/order_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__order_to_class__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/order_to_class__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__organism_identifier_plant__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/organism_identifier_plant__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__phylum_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/phylum_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__phylum_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/phylum_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__phylum_to_kingdom__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/phylum_to_kingdom__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__plant_identifier_taxon__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/plant_identifier_taxon__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__plant_location__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/plant_location__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__species_gbif_identifier__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/species_gbif_identifier__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__species_iucn_category__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/species_iucn_category__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__species_picture__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/species_picture__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__species_taxon_rank__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/species_taxon_rank__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__species_to_genus__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/species_to_genus__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__botanicalGarden_geo_index__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/botanicalGarden_geo_index__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__GSL_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/GSL_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__firstflower_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/firstflower_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__flowering_duration_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/flowering_duration_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__lastflower_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/lastflower_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__leafUnf_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/leafUnf_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__senOn_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/senOn_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__annual_phenology_compound_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/annual_phenology_compound_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__flowering_phenology_compound_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/flowering_phenology_compound_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__vegetative_phenology_compound_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/vegetative_phenology_compound_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__annual_phenology_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/annual_phenology_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__flowering_phenology_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/flowering_phenology_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: label_source__vegetative_phenology_complex_statement_unit__joined_label
+  access: C:/Users/talmu/Documents/GitHub/KGCPipeline-TDWG2026/06_Output/intermediate/labels/vegetative_phenology_complex_statement_unit__joined_label.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+triples_maps:
+- id: TM_botanical_garden_base
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    reference: wikidata_id
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/ENVO_BotanicalGarden
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_city_base
+  logical_source: cities-source
+  subject_map:
+    term_type: iri
+    reference: wikidata_id
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://schema.org/City
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_class_taxon_base
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_family_taxon_base
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_genus_taxon_base
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_kingdom_taxon_base
+  logical_source: kingdom-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_order_taxon_base
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_organism_base
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Organism/{Species_ID}
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Organism
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_phylum_taxon_base
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_plant_base
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Occurrence
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_species_base
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+- id: TM_species_names_base
+  logical_source: names-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://rs.tdwg.org/dwc/terms/Taxon
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      reference: label
+      language_reference: rdf_lang
+- id: TM_class_gbif_identifier__semantic_unit
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_class_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_class_gbif_identifier__assertion_graph
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_class_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: class_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_class_taxon_rank__semantic_unit
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_class_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_class_taxon_rank__assertion_graph
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_class_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: class
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_class_to_phylum__semantic_unit
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_class_to_phylum
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_class_to_phylum__assertion_graph
+  logical_source: class-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_class_to_phylum
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_phylum_taxon_base
+      join_conditions:
+      - child: phylum_tax
+        parent: phylum_tax
+- id: TM_family_gbif_identifier__semantic_unit
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_family_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_family_gbif_identifier__assertion_graph
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_family_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: family_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_family_taxon_rank__semantic_unit
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_family_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_family_taxon_rank__assertion_graph
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_family_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: family
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_family_to_order__semantic_unit
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_family_to_order
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_family_to_order__assertion_graph
+  logical_source: family-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_family_to_order
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_order_taxon_base
+      join_conditions:
+      - child: order_tax
+        parent: order_tax
+- id: TM_garden_coordinates__semantic_unit
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/coordinatesStatementUnit/{Botanic_Garden}_coordinates
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/coordinatesStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: wikidata_id
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has lat {latitude} and long {longitude}'
+- id: TM_garden_coordinates__assertion_graph
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    reference: wikidata_id
+    graph_template: http://example.com/base/SU/coordinatesStatementUnit/{Botanic_Garden}_coordinates
+  predicate_object_maps:
+  - predicate_constant: geo:lat
+    object_map:
+      term_type: literal
+      reference: latitude
+      datatype: http://www.w3.org/2001/XMLSchema#decimal
+  - predicate_constant: geo:long
+    object_map:
+      term_type: literal
+      reference: longitude
+      datatype: http://www.w3.org/2001/XMLSchema#decimal
+- id: TM_garden_location__semantic_unit
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/locationStatementUnit/{Botanic_Garden}_garden_location
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/locationStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: wikidata_id
+- id: TM_garden_location__assertion_graph
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    reference: wikidata_id
+    graph_template: http://example.com/base/SU/locationStatementUnit/{Botanic_Garden}_garden_location
+  predicate_object_maps:
+  - predicate_constant: http://purl.obolibrary.org/obo/RO_locatedIn
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_city_base
+      join_conditions:
+      - child: City
+        parent: City
+- id: TM_genus_gbif_identifier__semantic_unit
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_genus_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_genus_gbif_identifier__assertion_graph
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_genus_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: genus_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_genus_taxon_rank__semantic_unit
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_genus_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_genus_taxon_rank__assertion_graph
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_genus_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: genus
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_genus_to_family__semantic_unit
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_genus_to_family
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_genus_to_family__assertion_graph
+  logical_source: genus-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_genus_to_family
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_family_taxon_base
+      join_conditions:
+      - child: family_tax
+        parent: family_tax
+- id: TM_kingdom_gbif_identifier__semantic_unit
+  logical_source: kingdom-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_kingdom_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_kingdom_gbif_identifier__assertion_graph
+  logical_source: kingdom-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_kingdom_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: kingdom_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_kingdom_taxon_rank__semantic_unit
+  logical_source: kingdom-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_kingdom_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_kingdom_taxon_rank__assertion_graph
+  logical_source: kingdom-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_kingdom_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: kingdom
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_obs_FirstFlower__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/firstFlowerStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality pollen-releasing inflorescence present with value
+        true'
+- id: TM_obs_FirstFlower__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_FirstFlower__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementDatum
+- id: TM_obs_FirstFlower__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:valueSpecification
+- id: TM_obs_FirstFlower__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_pollenReleasingInflorescencePresent
+- id: TM_obs_FirstFlower__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_FirstFlower
+- id: TM_obs_FirstFlower__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_FirstFlower__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_FirstFlower
+- id: TM_obs_FirstFlower__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      constant: 'true'
+      datatype: http://www.w3.org/2001/XMLSchema#boolean
+- id: TM_obs_GSL__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/GSLStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality growing season length with value {GSL} and unit
+        unitDay'
+- id: TM_obs_GSL__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_GSL__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:scalarMeasurementDatum
+- id: TM_obs_GSL__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: obi:scalarValueSpecification
+- id: TM_obs_GSL__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/base/growingSeasonLength
+- id: TM_obs_GSL__unit_label_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/UnitLabel/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementUnitLabel
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+- id: TM_obs_GSL__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_GSL
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_GSL
+- id: TM_obs_GSL__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_GSL
+    graph_template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_GSL
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_GSL__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_GSL
+    graph_template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_GSL
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_GSL
+- id: TM_obs_GSL__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_GSL
+    graph_template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      reference: GSL
+      datatype: http://www.w3.org/2001/XMLSchema#integer
+  - predicate_constant: iao:hasMeasurementUnitLabel
+    object_map:
+      term_type: iri
+      template: http://example.com/base/UnitLabel/{Observation_ID}_obs_GSL
+- id: TM_obs_GSL__assertion_unit_label_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/UnitLabel/{Observation_ID}_obs_GSL
+    graph_template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+- id: TM_obs_LastFlower__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/lastFlowerStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality open inflorescence present with value true'
+- id: TM_obs_LastFlower__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_LastFlower__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementDatum
+- id: TM_obs_LastFlower__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:valueSpecification
+- id: TM_obs_LastFlower__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_openInflorescencePresent
+- id: TM_obs_LastFlower__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_LastFlower
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_LastFlower
+- id: TM_obs_LastFlower__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_LastFlower
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_LastFlower__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_LastFlower
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_LastFlower
+- id: TM_obs_LastFlower__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      constant: 'true'
+      datatype: http://www.w3.org/2001/XMLSchema#boolean
+- id: TM_obs_floweringDuration__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/floweringDurationStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality flowering duration with value {FloweringDuration}
+        and unit unitDay'
+- id: TM_obs_floweringDuration__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_floweringDuration
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_floweringDuration__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_floweringDuration
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:scalarMeasurementDatum
+- id: TM_obs_floweringDuration__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_floweringDuration
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: obi:scalarValueSpecification
+- id: TM_obs_floweringDuration__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_floweringDuration
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/base/floweringDuration
+- id: TM_obs_floweringDuration__unit_label_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/UnitLabel/{Observation_ID}_obs_floweringDuration
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementUnitLabel
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+- id: TM_obs_floweringDuration__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_floweringDuration
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_floweringDuration
+- id: TM_obs_floweringDuration__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_floweringDuration
+    graph_template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_floweringDuration
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_floweringDuration__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_floweringDuration
+    graph_template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_floweringDuration
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_floweringDuration
+- id: TM_obs_floweringDuration__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_floweringDuration
+    graph_template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      reference: FloweringDuration
+      datatype: http://www.w3.org/2001/XMLSchema#integer
+  - predicate_constant: iao:hasMeasurementUnitLabel
+    object_map:
+      term_type: iri
+      template: http://example.com/base/UnitLabel/{Observation_ID}_obs_floweringDuration
+- id: TM_obs_floweringDuration__assertion_unit_label_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/UnitLabel/{Observation_ID}_obs_floweringDuration
+    graph_template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+- id: TM_obs_leafUnf__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/leafUnfStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality mature true leaf present with value true'
+- id: TM_obs_leafUnf__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_leafUnf__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementDatum
+- id: TM_obs_leafUnf__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:valueSpecification
+- id: TM_obs_leafUnf__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_matureTrueLeafPresent
+- id: TM_obs_leafUnf__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_leafUnf
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_leafUnf
+- id: TM_obs_leafUnf__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_leafUnf
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_leafUnf__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_leafUnf
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_leafUnf
+- id: TM_obs_leafUnf__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      constant: 'true'
+      datatype: http://www.w3.org/2001/XMLSchema#boolean
+- id: TM_obs_senOn__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/senOnStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/observationStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: '{label} has quality senesced true leaf present with value true'
+- id: TM_obs_senOn__assay_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+- id: TM_obs_senOn__datum_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:measurementDatum
+- id: TM_obs_senOn__specification_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: iao:valueSpecification
+- id: TM_obs_senOn__quality_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Quality/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://purl.obolibrary.org/obo/PPO_senescedTrueLeafPresent
+- id: TM_obs_senOn__assertion_subject_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: obi:isSpecifiedInputOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Assay/{Observation_ID}_obs_senOn
+  - predicate_constant: ro:hasQuality
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_senOn
+- id: TM_obs_senOn__assertion_assay_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Assay/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: obi:hasSpecifiedOutput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Datum/{Observation_ID}_obs_senOn
+  - predicate_constant: obi:hasSpecifiedInput
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_obs_senOn__assertion_datum_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Datum/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: obi:hasValueSpecification
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Specification/{Observation_ID}_obs_senOn
+  - predicate_constant: iao:isQualityMeasurementOf
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Quality/{Observation_ID}_obs_senOn
+- id: TM_obs_senOn__assertion_specification_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Specification/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: iao:hasMeasurementValue
+    object_map:
+      term_type: literal
+      constant: 'true'
+      datatype: http://www.w3.org/2001/XMLSchema#boolean
+- id: TM_order_gbif_identifier__semantic_unit
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_order_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_order_gbif_identifier__assertion_graph
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_order_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: order_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_order_taxon_rank__semantic_unit
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_order_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_order_taxon_rank__assertion_graph
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_order_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: order
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_order_to_class__semantic_unit
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_order_to_class
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_order_to_class__assertion_graph
+  logical_source: order-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_order_to_class
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_class_taxon_base
+      join_conditions:
+      - child: class_tax
+        parent: class_tax
+- id: TM_organism_identifier_plant__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{Species_ID}_organism_identifier_plant
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Organism/{Species_ID}
+- id: TM_organism_identifier_plant__assertion_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Organism/{Species_ID}
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{Species_ID}_organism_identifier_plant
+  predicate_object_maps:
+  - predicate_constant: http://purl.org/dc/terms/identifier
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_phylum_gbif_identifier__semantic_unit
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_phylum_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_phylum_gbif_identifier__assertion_graph
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_phylum_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: phylum_key
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_phylum_taxon_rank__semantic_unit
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_phylum_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_phylum_taxon_rank__assertion_graph
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_phylum_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: phylum
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_phylum_to_kingdom__semantic_unit
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_phylum_to_kingdom
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_phylum_to_kingdom__assertion_graph
+  logical_source: phylum-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_phylum_to_kingdom
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_kingdom_taxon_base
+      join_conditions:
+      - child: kingdom_tax
+        parent: kingdom_tax
+- id: TM_plant_identifier_taxon__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{Observation_ID}_identifier
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_plant_identifier_taxon__assertion_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{Observation_ID}_identifier
+  predicate_object_maps:
+  - predicate_constant: http://purl.org/dc/terms/identifier
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_species_base
+      join_conditions:
+      - child: gbif_id
+        parent: gbif_id
+- id: TM_plant_location__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/locationStatementUnit/{Observation_ID}_plant_location
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/locationStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+- id: TM_plant_location__assertion_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/Plant/{Observation_ID}
+    graph_template: http://example.com/base/SU/locationStatementUnit/{Observation_ID}_plant_location
+  predicate_object_maps:
+  - predicate_constant: http://purl.obolibrary.org/obo/RO_locatedIn
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_botanical_garden_base
+      join_conditions:
+      - child: Botanic_Garden
+        parent: Botanic_Garden
+- id: TM_species_gbif_identifier__semantic_unit
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_GBIF
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/identifierStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_species_gbif_identifier__assertion_graph
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_GBIF
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonID
+    object_map:
+      term_type: literal
+      reference: gbif_id
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_species_iucn_category__semantic_unit
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/IUCNCategoryStatementUnit/{gbif_uri}_iucn_category
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/IUCNCategoryStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_species_iucn_category__assertion_graph
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/IUCNCategoryStatementUnit/{gbif_uri}_iucn_category
+  predicate_object_maps:
+  - predicate_constant: http://www.wikidata.org/prop/direct/P141
+    object_map:
+      term_type: literal
+      reference: iucn_category
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_species_picture__semantic_unit
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/hasImageStatementUnit/{gbif_uri}_picture
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/hasImageStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_species_picture__assertion_graph
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/hasImageStatementUnit/{gbif_uri}_picture
+  predicate_object_maps:
+  - predicate_constant: http://schema.org/url
+    object_map:
+      term_type: literal
+      reference: picture
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_species_taxon_rank__semantic_unit
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_species_rank
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/taxonRankStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_species_taxon_rank__assertion_graph
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_species_rank
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/taxonRank
+    object_map:
+      term_type: literal
+      constant: species
+      datatype: http://www.w3.org/2001/XMLSchema#string
+- id: TM_species_to_genus__semantic_unit
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_species_to_genus
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/parentTaxonStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: gbif_uri
+- id: TM_species_to_genus__assertion_graph
+  logical_source: species-source
+  subject_map:
+    term_type: iri
+    reference: gbif_uri
+    graph_template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_species_to_genus
+  predicate_object_maps:
+  - predicate_constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_genus_taxon_base
+      join_conditions:
+      - child: genus_tax
+        parent: genus_tax
+- id: TM_annualPhenology_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: year {Year}'
+- id: TM_annualPhenology_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_annualPhenology_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_annualPhenology_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_annualPhenology
+- id: TM_annualPhenology_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_annualPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitYear
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_annualPhenology_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {Year}'
+- id: TM_annualPhenology_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_annualPhenology_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_annualPhenology
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_annualPhenology_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+- id: TM_botanicalGarden_geo_index__semantic_unit
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      reference: wikidata_id
+- id: TM_botanicalGarden_geo_index__assertion_graph
+  logical_source: botanical_garden-source
+  subject_map:
+    term_type: iri
+    reference: wikidata_id
+    graph_template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  predicate_object_maps:
+  - predicate_constant: ro:locatedIn
+    object_map:
+      term_type: iri
+      parent_triples_map: TM_city_base
+      join_conditions:
+      - child: City
+        parent: City
+  - predicate_constant: geo:lat
+    object_map:
+      term_type: literal
+      reference: latitude
+      datatype: http://www.w3.org/2001/XMLSchema#float
+  - predicate_constant: geo:long
+    object_map:
+      term_type: literal
+      reference: longitude
+      datatype: http://www.w3.org/2001/XMLSchema#float
+- id: TM_firstflower_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: day {FirstFlower} of year {Year}'
+- id: TM_firstflower_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_firstflower_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_firstflower_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_FirstFlower
+- id: TM_firstflower_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+  - predicate_constant: time:dayOfYear
+    object_map:
+      term_type: literal
+      reference: FirstFlower
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_firstflower_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {FirstFlower_pos}'
+- id: TM_firstflower_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_firstflower_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: FirstFlower_pos
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_firstflower_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+- id: TM_floweringPhenology_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: year {Year}'
+- id: TM_floweringPhenology_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_floweringPhenology_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_floweringPhenology_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_floweringPhenology
+- id: TM_floweringPhenology_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_floweringPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitYear
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_floweringPhenology_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {Year}'
+- id: TM_floweringPhenology_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_floweringPhenology_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_floweringPhenology
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_floweringPhenology_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+- id: TM_lastflower_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: day {LastFlower} of year {Year}'
+- id: TM_lastflower_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_lastflower_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_lastflower_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_LastFlower
+- id: TM_lastflower_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+  - predicate_constant: time:dayOfYear
+    object_map:
+      term_type: literal
+      reference: LastFlower
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_lastflower_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {LastFlower_pos}'
+- id: TM_lastflower_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_lastflower_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: LastFlower_pos
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_lastflower_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+- id: TM_leafUnf_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: day {LeafUnf} of year {Year}'
+- id: TM_leafUnf_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_leafUnf_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_leafUnf_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_leafUnf
+- id: TM_leafUnf_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+  - predicate_constant: time:dayOfYear
+    object_map:
+      term_type: literal
+      reference: LeafUnf
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_leafUnf_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {LeafUnf_pos}'
+- id: TM_leafUnf_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_leafUnf_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: LeafUnf_pos
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_leafUnf_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+- id: TM_senOn_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: day {SenOn} of year {Year}'
+- id: TM_senOn_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_senOn_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_senOn_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_senOn
+- id: TM_senOn_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitDay
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+  - predicate_constant: time:dayOfYear
+    object_map:
+      term_type: literal
+      reference: SenOn
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_senOn_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {SenOn_pos}'
+- id: TM_senOn_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_senOn_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: SenOn_pos
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_senOn_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+- id: TM_vegetativePhenology_time_index__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time index: year {Year}'
+- id: TM_vegetativePhenology_time_index__temporal_entity_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:temporalEntity
+- id: TM_vegetativePhenology_time_index__time_description_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: time:DateTimeDescription
+- id: TM_vegetativePhenology_time_index__temporal_entity_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:inDateTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_vegetativePhenology
+- id: TM_vegetativePhenology_time_index__time_description_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_vegetativePhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:unitType
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#unitYear
+  - predicate_constant: time:year
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_vegetativePhenology_time_order__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  - predicate_constant: rdfs:label
+    object_map:
+      term_type: literal
+      template: 'Time order: position {Year}'
+- id: TM_vegetativePhenology_time_order__time_position_resource
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://www.w3.org/2006/time#timePosition
+- id: TM_vegetativePhenology_time_order__time_position_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/TimePosition/{Observation_ID}_obs_vegetativePhenology
+    graph_template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:numericPosition
+    object_map:
+      term_type: literal
+      reference: Year
+      datatype: http://www.w3.org/2001/XMLSchema#int
+- id: TM_vegetativePhenology_time_order__semantic_unit_has_time_graph
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+    graph_template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+- id: TM_GSL_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_GSL_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_annual_phenology_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+- id: TM_annual_phenology_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_annual_phenology_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+- id: TM_annual_phenology_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+- id: TM_firstflower_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+- id: TM_firstflower_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_firstflower_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+- id: TM_firstflower_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+- id: TM_flowering_duration_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_flowering_duration_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_flowering_phenology_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+- id: TM_flowering_phenology_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_flowering_phenology_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+- id: TM_flowering_phenology_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+- id: TM_lastflower_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+- id: TM_lastflower_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_lastflower_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+- id: TM_lastflower_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+- id: TM_leafUnf_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+- id: TM_leafUnf_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_leafUnf_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+- id: TM_leafUnf_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+- id: TM_senOn_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+- id: TM_senOn_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_senOn_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+- id: TM_senOn_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+- id: TM_vegetative_phenology_complex_statement_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/complexStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/assertionalStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/geoIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeIndexedStatementUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/timeOrderedStatementUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+- id: TM_vegetative_phenology_complex_statement_unit__complex_graph_occurs_in
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: bfo:occursIn
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+- id: TM_vegetative_phenology_complex_statement_unit__complex_graph_has_time
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:hasTime
+    object_map:
+      term_type: iri
+      template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+- id: TM_vegetative_phenology_complex_statement_unit__complex_graph_in_time_position
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+    graph_template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: time:inTimePosition
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+- id: TM_annual_phenology_compound_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/compoundUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/annualPhenologyCompoundUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+- id: TM_flowering_phenology_compound_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/compoundUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/floweringPhenologyCompoundUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+- id: TM_vegetative_phenology_compound_unit__semantic_unit
+  logical_source: observations-source
+  subject_map:
+    term_type: iri
+    template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+  predicate_object_maps:
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/compoundUnit
+  - predicate_constant: rdf:type
+    object_map:
+      term_type: iri
+      constant: http://example.com/semunit/vegetativePhenologyCompoundUnit
+  - predicate_constant: http://example.com/semunit/hasSemanticUnitSubject
+    object_map:
+      term_type: iri
+      template: http://example.com/base/Plant/{Observation_ID}
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+  - predicate_constant: http://example.com/semunit/hasAssociatedSemanticUnit
+    object_map:
+      term_type: iri
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+- id: TM_class_gbif_identifier__joined_label
+  logical_source: label_source__class_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_class_taxon_rank__joined_label
+  logical_source: label_source__class_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_class_to_phylum__joined_label
+  logical_source: label_source__class_to_phylum__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_family_gbif_identifier__joined_label
+  logical_source: label_source__family_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_family_taxon_rank__joined_label
+  logical_source: label_source__family_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_family_to_order__joined_label
+  logical_source: label_source__family_to_order__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_garden_location__joined_label
+  logical_source: label_source__garden_location__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_genus_gbif_identifier__joined_label
+  logical_source: label_source__genus_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_genus_taxon_rank__joined_label
+  logical_source: label_source__genus_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_genus_to_family__joined_label
+  logical_source: label_source__genus_to_family__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_kingdom_gbif_identifier__joined_label
+  logical_source: label_source__kingdom_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_kingdom_taxon_rank__joined_label
+  logical_source: label_source__kingdom_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_order_gbif_identifier__joined_label
+  logical_source: label_source__order_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_order_taxon_rank__joined_label
+  logical_source: label_source__order_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_order_to_class__joined_label
+  logical_source: label_source__order_to_class__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_organism_identifier_plant__joined_label
+  logical_source: label_source__organism_identifier_plant__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_phylum_gbif_identifier__joined_label
+  logical_source: label_source__phylum_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_phylum_taxon_rank__joined_label
+  logical_source: label_source__phylum_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_phylum_to_kingdom__joined_label
+  logical_source: label_source__phylum_to_kingdom__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_plant_identifier_taxon__joined_label
+  logical_source: label_source__plant_identifier_taxon__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_plant_location__joined_label
+  logical_source: label_source__plant_location__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_species_gbif_identifier__joined_label
+  logical_source: label_source__species_gbif_identifier__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_species_iucn_category__joined_label
+  logical_source: label_source__species_iucn_category__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_species_picture__joined_label
+  logical_source: label_source__species_picture__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_species_taxon_rank__joined_label
+  logical_source: label_source__species_taxon_rank__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_species_to_genus__joined_label
+  logical_source: label_source__species_to_genus__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_botanicalGarden_geo_index__joined_label
+  logical_source: label_source__botanicalGarden_geo_index__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_GSL_complex_statement_unit__joined_label
+  logical_source: label_source__GSL_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_firstflower_complex_statement_unit__joined_label
+  logical_source: label_source__firstflower_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_flowering_duration_complex_statement_unit__joined_label
+  logical_source: label_source__flowering_duration_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_lastflower_complex_statement_unit__joined_label
+  logical_source: label_source__lastflower_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_leafUnf_complex_statement_unit__joined_label
+  logical_source: label_source__leafUnf_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_senOn_complex_statement_unit__joined_label
+  logical_source: label_source__senOn_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_annual_phenology_compound_unit__joined_label
+  logical_source: label_source__annual_phenology_compound_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_flowering_phenology_compound_unit__joined_label
+  logical_source: label_source__flowering_phenology_compound_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_vegetative_phenology_compound_unit__joined_label
+  logical_source: label_source__vegetative_phenology_compound_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_annual_phenology_complex_statement_unit__joined_label
+  logical_source: label_source__annual_phenology_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_flowering_phenology_complex_statement_unit__joined_label
+  logical_source: label_source__flowering_phenology_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+- id: TM_vegetative_phenology_complex_statement_unit__joined_label
+  logical_source: label_source__vegetative_phenology_complex_statement_unit__joined_label
+  subject_map:
+    reference: su_iri
+    term_type: iri
+  predicate_object_maps:
+  - predicate_constant: http://www.w3.org/2000/01/rdf-schema#label
+    object_map:
+      reference: label
+      term_type: literal
+label_mapping_metadata:
+  label_tables_path: C:\Users\talmu\Documents\GitHub\KGCPipeline-TDWG2026\06_Output\label_tables.yaml
+  source_label_jobs_path: C:\Users\talmu\Documents\GitHub\KGCPipeline-TDWG2026\06_Output\label_jobs.yaml
+  generated_label_tables: 39
+  lookup_only_label_tables: 21
+  skipped_label_tables: 0

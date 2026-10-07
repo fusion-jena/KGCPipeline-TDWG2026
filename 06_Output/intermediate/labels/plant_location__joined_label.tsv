@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/locationStatementUnit/Ach_mil_Hal_2023_plant_location	Achillea millefolium is located in Botanischer Garten der Martin-Luther-Universität Halle-Wittenberg	plant_location__joined_label	1
+http://example.com/base/SU/locationStatementUnit/Ach_mil_Hal_2024_plant_location	Achillea millefolium is located in Botanischer Garten der Martin-Luther-Universität Halle-Wittenberg	plant_location__joined_label	2
+http://example.com/base/SU/locationStatementUnit/Ach_mil_Jen_2023_plant_location	Achillea millefolium is located in Botanischer Garten Jena	plant_location__joined_label	3
+http://example.com/base/SU/locationStatementUnit/Ach_mil_Jen_2024_plant_location	Achillea millefolium is located in Botanischer Garten Jena	plant_location__joined_label	4

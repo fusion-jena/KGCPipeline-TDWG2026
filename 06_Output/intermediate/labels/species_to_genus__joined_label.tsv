@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/parentTaxonStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3120060_species_to_genus	Achillea millefolium has parent taxon Achillea	species_to_genus__joined_label	1

@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/hasImageStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3120060_picture	3120060 has image original.jpg	species_picture__joined_label	1

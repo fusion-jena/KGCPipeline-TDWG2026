@@ -1,0 +1,21 @@
+id: entity
+extends: rdf:Resource
+execution_layer: 0
+emit_bundles:
+- id: base_entity
+  subject_map: entity.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: entity.class
+      term_type: iri
+  - predicate_map:
+      constant: rdfs:label
+    object_map: entity.label_map
+    when_present: true
+  - predicate_map:
+      constant: dcterms:description
+    object_map: entity.description_map
+    when_present: true

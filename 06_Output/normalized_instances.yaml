@@ -1,0 +1,5287 @@
+prefixes:
+  ex: http://example.com/base/
+  semunit: http://example.com/semunit/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dcterms: http://purl.org/dc/terms/
+  schema: http://schema.org/
+  envo: http://purl.obolibrary.org/obo/ENVO_
+  ro: http://purl.obolibrary.org/obo/RO_
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  dwc: http://rs.tdwg.org/dwc/terms/
+  obi: http://purl.obolibrary.org/obo/OBI_
+  iao: http://purl.obolibrary.org/obo/IAO_
+  ppo: http://purl.obolibrary.org/obo/PPO_
+  time: http://www.w3.org/2006/time#
+  bfo: http://purl.obolibrary.org/obo/BFO_
+  po: http://purl.obolibrary.org/obo/PO_
+  wd: http://www.wikidata.org/entity/
+  wdt: http://www.wikidata.org/prop/direct/
+sources:
+- id: cities-source
+  access: 01_InputData/cities.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: botanical_garden-source
+  access: 01_InputData/botanical_gardens.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: observations-source
+  access: 01_InputData/observations.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: species-source
+  access: 01_InputData/species.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: names-source
+  access: 01_InputData/names.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: genus-source
+  access: 01_InputData/genus.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: family-source
+  access: 01_InputData/family.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: order-source
+  access: 01_InputData/order.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: class-source
+  access: 01_InputData/class.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: phylum-source
+  access: 01_InputData/phylum.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+- id: kingdom-source
+  access: 01_InputData/kingdom.tsv
+  format: tsv
+  reference_formulation: tsv
+  delimiter: "\t"
+  iterator: null
+instances:
+- id: botanical_garden
+  family: entity
+  source: botanical_garden-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id003
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: wikidata_id
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://purl.obolibrary.org/obo/ENVO_BotanicalGarden
+    label_map: &id004
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_botanical_garden_base
+- id: city
+  family: entity
+  source: cities-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id001
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: wikidata_id
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://schema.org/City
+    label_map: &id002
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_city_base
+- id: class_taxon
+  family: entity
+  source: class-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id019
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id020
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_class_taxon_base
+- id: family_taxon
+  family: entity
+  source: family-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id015
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id016
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_family_taxon_base
+- id: genus_taxon
+  family: entity
+  source: genus-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id013
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id014
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_genus_taxon_base
+- id: kingdom_taxon
+  family: entity
+  source: kingdom-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id023
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id024
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_kingdom_taxon_base
+- id: order_taxon
+  family: entity
+  source: order-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id017
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id018
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_order_taxon_base
+- id: organism
+  family: entity
+  source: observations-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id007
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/Organism/{Species_ID}
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Organism
+    label_map: &id008
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_organism_base
+- id: phylum_taxon
+  family: entity
+  source: phylum-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id021
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id022
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_phylum_taxon_base
+- id: plant
+  family: entity
+  source: observations-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id005
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/Plant/{Observation_ID}
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Occurrence
+    label_map: &id006
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_plant_base
+- id: species
+  family: entity
+  source: species-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id009
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id010
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    description_map: null
+    triples_map_id: TM_species_base
+- id: species_names
+  family: entity
+  source: names-source
+  execution_layer: 0
+  resolved:
+    subject_map: &id011
+      kind: reference
+      term_type: iri
+      constant: null
+      reference: gbif_uri
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: &id012
+      kind: reference
+      term_type: literal
+      constant: null
+      reference: label
+      template: null
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: rdf_lang
+      language_template: null
+    description_map: null
+    triples_map_id: TM_species_names_base
+- id: class_gbif_identifier
+  family: unary_statement
+  source: class-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_class_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: class_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: class_taxon_rank
+  family: unary_statement
+  source: class-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_class_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: class
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: class_to_phylum
+  family: unary_statement
+  source: class-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_class_to_phylum
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_phylum_taxon_base
+        join_conditions:
+        - child: phylum_tax
+          parent: phylum_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: family_gbif_identifier
+  family: unary_statement
+  source: family-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_family_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: family_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: family_taxon_rank
+  family: unary_statement
+  source: family-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_family_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: family
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: family_to_order
+  family: unary_statement
+  source: family-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_family_to_order
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_order_taxon_base
+        join_conditions:
+        - child: order_tax
+          parent: order_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: garden_coordinates
+  family: coordinates_statement
+  source: botanical_garden-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/coordinatesStatementUnit
+    statement_unit_type_local: coordinatesStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/coordinatesStatementUnit/{Botanic_Garden}_coordinates
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      latitude:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: latitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#decimal
+        language: null
+        language_reference: null
+        language_template: null
+      longitude:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: longitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#decimal
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has lat {latitude} and long {longitude}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: garden_location
+  family: unary_statement
+  source: botanical_garden-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/locationStatementUnit
+    statement_unit_type_local: locationStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/locationStatementUnit/{Botanic_Garden}_garden_location
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: is located in
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/RO_locatedIn
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: genus_gbif_identifier
+  family: unary_statement
+  source: genus-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_genus_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: genus_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: genus_taxon_rank
+  family: unary_statement
+  source: genus-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_genus_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: genus
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: genus_to_family
+  family: unary_statement
+  source: genus-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_genus_to_family
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_family_taxon_base
+        join_conditions:
+        - child: family_tax
+          parent: family_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: kingdom_gbif_identifier
+  family: unary_statement
+  source: kingdom-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_kingdom_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: kingdom_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: kingdom_taxon_rank
+  family: unary_statement
+  source: kingdom-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_kingdom_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: kingdom
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: obs_FirstFlower
+  family: observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/firstFlowerStatementUnit
+    statement_unit_type_local: firstFlowerStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_pollenReleasingInflorescencePresent
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: constant
+        term_type: literal
+        constant: 'true'
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#boolean
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality pollen-releasing inflorescence present with value
+        true'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: obs_GSL
+  family: scalar_observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/GSLStatementUnit
+    statement_unit_type_local: GSLStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://example.com/base/growingSeasonLength
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: GSL
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#integer
+        language: null
+        language_reference: null
+        language_template: null
+      unit:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      unit_label:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/UnitLabel/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality growing season length with value {GSL} and unit
+        unitDay'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: obs_LastFlower
+  family: observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/lastFlowerStatementUnit
+    statement_unit_type_local: lastFlowerStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_openInflorescencePresent
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: constant
+        term_type: literal
+        constant: 'true'
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#boolean
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality open inflorescence present with value true'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: obs_floweringDuration
+  family: scalar_observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/floweringDurationStatementUnit
+    statement_unit_type_local: floweringDurationStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://example.com/base/floweringDuration
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: FloweringDuration
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#integer
+        language: null
+        language_reference: null
+        language_template: null
+      unit:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_floweringDuration
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_floweringDuration
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_floweringDuration
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_floweringDuration
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      unit_label:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/UnitLabel/{Observation_ID}_obs_floweringDuration
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality flowering duration with value {FloweringDuration}
+        and unit unitDay'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: obs_leafUnf
+  family: observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/leafUnfStatementUnit
+    statement_unit_type_local: leafUnfStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_matureTrueLeafPresent
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: constant
+        term_type: literal
+        constant: 'true'
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#boolean
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality mature true leaf present with value true'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: obs_senOn
+  family: observation_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/senOnStatementUnit
+    statement_unit_type_local: senOnStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      assay_type:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_phenologyObservingProcess
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/PPO_senescedTrueLeafPresent
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      value:
+        kind: constant
+        term_type: literal
+        constant: 'true'
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#boolean
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      assay:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Assay/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      datum:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Datum/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      specification:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Specification/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      quality_instance:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Quality/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: '{label} has quality senesced true leaf present with value true'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: order_gbif_identifier
+  family: unary_statement
+  source: order-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_order_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: order_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: order_taxon_rank
+  family: unary_statement
+  source: order-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_order_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: order
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: order_to_class
+  family: unary_statement
+  source: order-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_order_to_class
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_class_taxon_base
+        join_conditions:
+        - child: class_tax
+          parent: class_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: organism_identifier_plant
+  family: unary_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{Species_ID}_organism_identifier_plant
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has identifier
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Organism/{Species_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://purl.org/dc/terms/identifier
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: phylum_gbif_identifier
+  family: unary_statement
+  source: phylum-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_phylum_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: phylum_key
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: phylum_taxon_rank
+  family: unary_statement
+  source: phylum-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_phylum_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: phylum
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: phylum_to_kingdom
+  family: unary_statement
+  source: phylum-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_phylum_to_kingdom
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_kingdom_taxon_base
+        join_conditions:
+        - child: kingdom_tax
+          parent: kingdom_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: plant_identifier_taxon
+  family: unary_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{Observation_ID}_identifier
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has identifier
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://purl.org/dc/terms/identifier
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_species_base
+        join_conditions:
+        - child: gbif_id
+          parent: gbif_id
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: plant_location
+  family: unary_statement
+  source: observations-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/locationStatementUnit
+    statement_unit_type_local: locationStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/locationStatementUnit/{Observation_ID}_plant_location
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: is located in
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://purl.obolibrary.org/obo/RO_locatedIn
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_botanical_garden_base
+        join_conditions:
+        - child: Botanic_Garden
+          parent: Botanic_Garden
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: species_gbif_identifier
+  family: unary_statement
+  source: species-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/identifierStatementUnit
+    statement_unit_type_local: identifierStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/identifierStatementUnit/{gbif_uri}_GBIF
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has GBIF identifier
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: gbif_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: species_iucn_category
+  family: unary_statement
+  source: species-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/IUCNCategoryStatementUnit
+    statement_unit_type_local: IUCNCategoryStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/IUCNCategoryStatementUnit/{gbif_uri}_iucn_category
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has IUCN conservation status
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://www.wikidata.org/prop/direct/P141
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: iucn_category
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: species_picture
+  family: unary_statement
+  source: species-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/hasImageStatementUnit
+    statement_unit_type_local: hasImageStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/hasImageStatementUnit/{gbif_uri}_picture
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has image
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://schema.org/url
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: picture
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: species_taxon_rank
+  family: unary_statement
+  source: species-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/taxonRankStatementUnit
+    statement_unit_type_local: taxonRankStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/taxonRankStatementUnit/{gbif_uri}_species_rank
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has taxon rank
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/taxonRank
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: constant
+        term_type: literal
+        constant: species
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#string
+        language: null
+        language_reference: null
+        language_template: null
+- id: species_to_genus
+  family: unary_statement
+  source: species-source
+  execution_layer: 10
+  resolved:
+    statement_unit_type: http://example.com/semunit/parentTaxonStatementUnit
+    statement_unit_type_local: parentTaxonStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/parentTaxonStatementUnit/{gbif_uri}_species_to_genus
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    label_phrase: has parent taxon
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: gbif_uri
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      predicate:
+        kind: constant
+        term_type: iri
+        constant: http://rs.tdwg.org/dwc/terms/parentNameUsageID
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_genus_taxon_base
+        join_conditions:
+        - child: genus_tax
+          parent: genus_tax
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+- id: annualPhenology_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitYear
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: annualPhenology_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: botanicalGarden_geo_index
+  family: geo_index_statement
+  source: botanical_garden-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/geoIndexStatementUnit
+    statement_unit_type_local: geoIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: reference
+        term_type: iri
+        constant: null
+        reference: wikidata_id
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      object:
+        kind: parent
+        term_type: iri
+        constant: null
+        reference: null
+        template: null
+        parent_triples_map: TM_city_base
+        join_conditions:
+        - child: City
+          parent: City
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      latitude:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: latitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#float
+        language: null
+        language_reference: null
+        language_template: null
+      longitude:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: longitude
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#float
+        language: null
+        language_reference: null
+        language_template: null
+- id: firstflower_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:dayOfYear
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: FirstFlower
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: day {FirstFlower} of year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: firstflower_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: FirstFlower_pos
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {FirstFlower_pos}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: floweringPhenology_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitYear
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: floweringPhenology_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: lastflower_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:dayOfYear
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: LastFlower
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: day {LastFlower} of year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: lastflower_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: LastFlower_pos
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {LastFlower_pos}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: leafUnf_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:dayOfYear
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: LeafUnf
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: day {LeafUnf} of year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: leafUnf_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: LeafUnf_pos
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {LeafUnf_pos}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: senOn_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitDay
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:dayOfYear
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: SenOn
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: day {SenOn} of year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: senOn_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: SenOn_pos
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {SenOn_pos}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: vegetativePhenology_time_index
+  family: time_index_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeIndexStatementUnit
+    statement_unit_type_local: timeIndexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_description:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//DateTimeDescription/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    time_fields:
+    - predicate: time:unitType
+      object_map:
+        kind: constant
+        term_type: iri
+        constant: http://www.w3.org/2006/time#unitYear
+        reference: null
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    - predicate: time:year
+      object_map:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: false
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time index: year {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: vegetativePhenology_time_order
+  family: time_order_statement
+  source: observations-source
+  execution_layer: 20
+  resolved:
+    statement_unit_type: http://example.com/semunit/timeOrderStatementUnit
+    statement_unit_type_local: timeOrderStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      position:
+        kind: reference
+        term_type: literal
+        constant: null
+        reference: Year
+        template: null
+        parent_triples_map: null
+        join_conditions: null
+        datatype: http://www.w3.org/2001/XMLSchema#int
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      time_position:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/TimePosition/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_semantic_unit_has_time: true
+    emit_subject_in_time_position: false
+    time_position_type: http://www.w3.org/2006/time#timePosition
+    label_map:
+      kind: template
+      term_type: literal
+      constant: null
+      reference: null
+      template: 'Time order: position {Year}'
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+- id: GSL_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/GSLStatementUnit/{Observation_ID}_obs_GSL
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources: {}
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: false
+    emit_time_order_type: false
+    time_position_object: time_order
+- id: annual_phenology_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_annualPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_annualPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: firstflower_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/firstFlowerStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_FirstFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: flowering_duration_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/fldurStatementUnit/{Observation_ID}_obs_fldur
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources: {}
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: false
+    emit_time_order_type: false
+    time_position_object: time_order
+- id: flowering_phenology_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_floweringPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_floweringPhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: lastflower_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/lastFlowerStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_LastFlower
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: leafUnf_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/leafUnfStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_leafUnf
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: senOn_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/senOnStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_senOn
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: vegetative_phenology_complex_statement_unit
+  family: complex_statement
+  source: observations-source
+  execution_layer: 30
+  resolved:
+    statement_unit_type: http://example.com/semunit/complexStatementUnit
+    statement_unit_type_local: complexStatementUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      geo_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/geoIndexStatementUnit/{Botanic_Garden}_botanicalGarden_geo_index
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_index:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeIndexStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+      time_order:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/SU/timeOrderStatementUnit/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    resources:
+      temporal_entity:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base//temporalEntity/{Observation_ID}_obs_vegetativePhenology
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    emit_complex_graph_triples: true
+    emit_associated_subject: false
+    emit_geo_index_type: true
+    emit_time_index_type: true
+    emit_time_order_type: true
+    time_position_object: time_order
+- id: annual_phenology_compound_unit
+  family: compound_unit
+  source: observations-source
+  execution_layer: 40
+  resolved:
+    statement_unit_type: http://example.com/semunit/annualPhenologyCompoundUnit
+    statement_unit_type_local: annualPhenologyCompoundUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_annualPhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    association_members:
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    resources: {}
+    emit_complex_graph_triples: false
+- id: flowering_phenology_compound_unit
+  family: compound_unit
+  source: observations-source
+  execution_layer: 40
+  resolved:
+    statement_unit_type: http://example.com/semunit/floweringPhenologyCompoundUnit
+    statement_unit_type_local: floweringPhenologyCompoundUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_phenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    association_members:
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_FirstFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_LastFlower
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_fldur
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    resources: {}
+    emit_complex_graph_triples: false
+- id: vegetative_phenology_compound_unit
+  family: compound_unit
+  source: observations-source
+  execution_layer: 40
+  resolved:
+    statement_unit_type: http://example.com/semunit/vegetativePhenologyCompoundUnit
+    statement_unit_type_local: vegetativePhenologyCompoundUnit
+    semantic_unit_map:
+      kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/compoundUnit/{Observation_ID}_vegetativePhenology
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    roles:
+      subject:
+        kind: template
+        term_type: iri
+        constant: null
+        reference: null
+        template: http://example.com/base/Plant/{Observation_ID}
+        parent_triples_map: null
+        join_conditions: null
+        datatype: null
+        language: null
+        language_reference: null
+        language_template: null
+    association_members:
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_leafUnf
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_senOn
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    - kind: template
+      term_type: iri
+      constant: null
+      reference: null
+      template: http://example.com/base/SU/complexStatementUnit/{Observation_ID}_obs_GSL
+      parent_triples_map: null
+      join_conditions: null
+      datatype: null
+      language: null
+      language_reference: null
+      language_template: null
+    resources: {}
+    emit_complex_graph_triples: false
+entity_registry:
+  city:
+    id: city
+    source: cities-source
+    triples_map_id: TM_city_base
+    subject_map: *id001
+    class_iri: http://schema.org/City
+    label_map: *id002
+  botanical_garden:
+    id: botanical_garden
+    source: botanical_garden-source
+    triples_map_id: TM_botanical_garden_base
+    subject_map: *id003
+    class_iri: http://purl.obolibrary.org/obo/ENVO_BotanicalGarden
+    label_map: *id004
+  plant:
+    id: plant
+    source: observations-source
+    triples_map_id: TM_plant_base
+    subject_map: *id005
+    class_iri: http://rs.tdwg.org/dwc/terms/Occurrence
+    label_map: *id006
+  organism:
+    id: organism
+    source: observations-source
+    triples_map_id: TM_organism_base
+    subject_map: *id007
+    class_iri: http://rs.tdwg.org/dwc/terms/Organism
+    label_map: *id008
+  species:
+    id: species
+    source: species-source
+    triples_map_id: TM_species_base
+    subject_map: *id009
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id010
+  species_names:
+    id: species_names
+    source: names-source
+    triples_map_id: TM_species_names_base
+    subject_map: *id011
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id012
+  genus_taxon:
+    id: genus_taxon
+    source: genus-source
+    triples_map_id: TM_genus_taxon_base
+    subject_map: *id013
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id014
+  family_taxon:
+    id: family_taxon
+    source: family-source
+    triples_map_id: TM_family_taxon_base
+    subject_map: *id015
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id016
+  order_taxon:
+    id: order_taxon
+    source: order-source
+    triples_map_id: TM_order_taxon_base
+    subject_map: *id017
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id018
+  class_taxon:
+    id: class_taxon
+    source: class-source
+    triples_map_id: TM_class_taxon_base
+    subject_map: *id019
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id020
+  phylum_taxon:
+    id: phylum_taxon
+    source: phylum-source
+    triples_map_id: TM_phylum_taxon_base
+    subject_map: *id021
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id022
+  kingdom_taxon:
+    id: kingdom_taxon
+    source: kingdom-source
+    triples_map_id: TM_kingdom_taxon_base
+    subject_map: *id023
+    class_iri: http://rs.tdwg.org/dwc/terms/Taxon
+    label_map: *id024

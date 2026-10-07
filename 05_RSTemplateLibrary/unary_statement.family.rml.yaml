@@ -1,0 +1,73 @@
+id: unary_statement
+extends: semunit:assertionalStatementUnit
+execution_layer: 10
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - label_phrase
+  - roles
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+    predicate:
+      path: roles.predicate
+      required: true
+      resolver: predicate
+    object:
+      path: roles.object
+      required: true
+      default_term_type: iri
+  values:
+    label_phrase:
+      path: label_phrase
+      default: related to
+emit_bundles:
+- id: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:assertionalStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+- id: assertion_graph
+  subject_map: roles.subject
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map: roles.predicate
+    object_map: roles.object
+joined_label_map:
+  mode: joined_table
+  target: semantic_unit
+  template: '{subject_label} {label_phrase} {object_label}'
+  fallback_template: '{subject_key} {label_phrase} {object_key}'
+  tokens:
+    subject_label:
+      from_entity_label: roles.subject
+    subject_key:
+      from: roles.subject
+      humanize_iri_constants: false
+    label_phrase:
+      from_instance: label_phrase
+      default: related to
+    object_label:
+      from_entity_label: roles.object
+      allow_join: true
+    object_key:
+      from: roles.object
+      humanize_iri_constants: false

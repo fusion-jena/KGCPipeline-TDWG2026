@@ -1,0 +1,5 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Hal_organism_identifier_plant	Achillea millefolium has identifier Achillea millefolium	organism_identifier_plant__joined_label	1
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Hal_organism_identifier_plant	Achillea millefolium has identifier Achillea millefolium	organism_identifier_plant__joined_label	2
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Jen_organism_identifier_plant	Achillea millefolium has identifier Achillea millefolium	organism_identifier_plant__joined_label	3
+http://example.com/base/SU/identifierStatementUnit/Ach_mil_Jen_organism_identifier_plant	Achillea millefolium has identifier Achillea millefolium	organism_identifier_plant__joined_label	4

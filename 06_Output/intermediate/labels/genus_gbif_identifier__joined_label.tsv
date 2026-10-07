@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/identifierStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3119995_genus_GBIF	3119995 has GBIF identifier 3119995	genus_gbif_identifier__joined_label	1

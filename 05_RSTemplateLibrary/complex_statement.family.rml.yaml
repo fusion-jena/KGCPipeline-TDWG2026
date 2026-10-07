@@ -1,0 +1,208 @@
+id: complex_statement
+extends: semunit:complexStatementUnit
+execution_layer: 30
+resolution:
+  resolved_order:
+  - statement_unit_type
+  - statement_unit_type_local
+  - semantic_unit_map
+  - roles
+  - resources
+  - emit_complex_graph_triples
+  - emit_associated_subject
+  - emit_geo_index_type
+  - emit_time_index_type
+  - emit_time_order_type
+  - time_position_object
+  statement_unit_type: true
+  semantic_unit: true
+  roles:
+    subject:
+      path: roles.subject
+      required: true
+      default_term_type: iri
+    geo_index:
+      path: roles.geo_index
+      default_term_type: iri
+    time_index:
+      path: roles.time_index
+      default_term_type: iri
+    time_order:
+      path: roles.time_order
+      default_term_type: iri
+  resources:
+    temporal_entity:
+      path: resources.temporal_entity
+    time_position:
+      path: resources.time_position
+  values:
+    emit_complex_graph_triples:
+      kind: bool
+      path: emit_complex_graph_triples
+      default: true
+    emit_associated_subject:
+      kind: bool
+      path: emit_associated_subject
+      default: false
+    emit_geo_index_type:
+      kind: bool
+      path: emit_geo_index_type
+      default_exists: roles.geo_index
+    emit_time_index_type:
+      kind: bool
+      path: emit_time_index_type
+      default_exists: roles.time_index
+    emit_time_order_type:
+      kind: bool
+      path: emit_time_order_type
+      default_exists: roles.time_order
+    time_position_object:
+      kind: scalar
+      path: time_position_object
+      default: time_order
+emit_bundles:
+- id: semantic_unit_resource
+  kind: semantic_unit_resource
+  subject_map: semantic_unit.subject_map
+  graph_map: default
+  predicate_object_maps:
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: statement_unit_type
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:assertionalStatementUnit
+      term_type: iri
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:complexStatementUnit
+      term_type: iri
+    when_not_equals:
+    - statement_unit_type
+    - semunit:complexStatementUnit
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:geoIndexedStatementUnit
+      term_type: iri
+    when: emit_geo_index_type
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:timeIndexedStatementUnit
+      term_type: iri
+    when: emit_time_index_type
+  - predicate_map:
+      constant: rdf:type
+    object_map:
+      constant: semunit:timeOrderedStatementUnit
+      term_type: iri
+    when: emit_time_order_type
+  - predicate_map:
+      constant: semunit:hasSemanticUnitSubject
+    object_map: roles.subject
+  - predicate_map:
+      constant: semunit:hasAssociatedSemanticUnit
+    object_map: roles.subject
+    when: emit_associated_subject
+  - predicate_map:
+      constant: semunit:hasAssociatedSemanticUnit
+    object_map: roles.geo_index
+    when_exists: roles.geo_index
+  - predicate_map:
+      constant: semunit:hasAssociatedSemanticUnit
+    object_map: roles.time_index
+    when_exists: roles.time_index
+  - predicate_map:
+      constant: semunit:hasAssociatedSemanticUnit
+    object_map: roles.time_order
+    when_exists: roles.time_order
+- id: complex_graph_occurs_in
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: roles.geo_index
+  subject_map: roles.subject
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: bfo:occursIn
+    object_map: roles.geo_index
+- id: complex_graph_has_time
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: resources.temporal_entity
+  subject_map: roles.subject
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:hasTime
+    object_map: resources.temporal_entity
+- id: complex_graph_in_time_position
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: roles.time_index
+    - exists: roles.time_order
+    - not_equals:
+      - time_position_object
+      - time_position
+  subject_map: roles.time_index
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:inTimePosition
+    object_map: roles.time_order
+- id: complex_graph_in_time_position
+  kind: assertion_graph
+  when:
+    all:
+    - emit_complex_graph_triples
+    - exists: roles.time_index
+    - exists: resources.time_position
+    - equals:
+      - time_position_object
+      - time_position
+  subject_map: roles.time_index
+  graph_map: semantic_unit.subject_map
+  predicate_object_maps:
+  - predicate_map:
+      constant: time:inTimePosition
+    object_map: resources.time_position
+joined_label_map:
+  mode: joined_table
+  target: semantic_unit
+  cases:
+  - requires:
+    - subject_label
+    - time_index_label
+    - time_order_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. {time_order_label}. Observed at:
+      {geo_index_label}'
+  - requires:
+    - subject_label
+    - time_index_label
+    - geo_index_label
+    template: '{subject_label}. {time_index_label}. Observed at: {geo_index_label}'
+  - requires:
+    - subject_label
+    - geo_index_label
+    template: '{subject_label}. Observed at: {geo_index_label}'
+  tokens:
+    subject_label:
+      from_semantic_unit_label: roles.subject
+    geo_index_label:
+      from_semantic_unit_label: roles.geo_index
+    time_index_label:
+      from_semantic_unit_label: roles.time_index
+    time_order_label:
+      from_semantic_unit_label: roles.time_order

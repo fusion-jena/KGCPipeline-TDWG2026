@@ -1,0 +1,2 @@
+su_iri	label	job_id	row_number
+http://example.com/base/SU/taxonRankStatementUnit/https%3A%2F%2Fwww.gbif.org%2Fspecies%2F3120060_species_rank	3120060 has taxon rank species	species_taxon_rank__joined_label	1
